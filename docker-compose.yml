@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  food_photo_service:
+    build: ./food_photo_service
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./food_photo_service:/app
+    environment:
+      - DEBUG=True
+  food_info_service:
+    build: ./food_info_service
+    ports:
+      - "8002:8000"
+    volumes:
+      - ./food_info_service:/app
+    environment:
+      - DEBUG=True
+  gateway:
+    build: ./gateway
+    ports:
+      - "8000:8000"
