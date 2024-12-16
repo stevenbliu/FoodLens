@@ -7,7 +7,7 @@ class Photo(models.Model):
     file_size = models.PositiveIntegerField()  # File size in bytes
     s3_url = models.URLField()  # The S3 URL to access the photo
     upload_time = models.DateTimeField(default=timezone.now)  # Time when the photo metadata is saved
-    # checksum = models.CharField(max_length=255, blank=True, null=True)  # Optional field to store checksum (e.g., MD5) 
+    checksum = models.CharField(max_length=255, blank=True, null=True)  # Optional field to store checksum (e.g., MD5) 
 
     # Information about food (optional in the initial model)
     food_name = models.CharField(max_length=255, blank=True, null=True)
