@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'food_photo_service',
-    'food_photo_service.photo',
-    'food_photo_service.photo.tests',
+    # 'food_photo_service',
+    # 'food_photo_service.photo',
+    # 'food_photo_service.photo.tests',
 
 
 
@@ -61,8 +61,8 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            os.path.join(BASE_DIR, 'food_photo_service\photo\templates'),
-            os.path.join(BASE_DIR, 'food_photo_service\photo'),
+            # os.path.join(BASE_DIR, 'food_photo_service\photo\templates'),
+            # os.path.join(BASE_DIR, 'food_photo_service\photo'),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
