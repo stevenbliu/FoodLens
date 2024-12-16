@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Photo Upload</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Layout */
+        body {
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #777;
+        }
+
+        .form-group {
+            margin: 20px 0;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .custom-file-upload {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .photo-display {
+            margin-top: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .response-box {
+            margin-top: 30px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .back-link {
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Food Photo Upload</h1>
+        <p>Upload and view your delicious food photos below</p>
+
+        <!-- Upload Photo Form -->
+        <div class="form-group">
+            <form id="uploadForm" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="photo" class="custom-file-upload">
+                    <i class="fas fa-upload"></i> Choose a photo to upload
+                </label>
+                <input type="file" name="photo" id="photo" required>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+
+        {% if latest_photo %}
+            <div class="photo-display">
+                <h2>Latest Uploaded Photo</h2>
+                <img src="{{ latest_photo.image.url }}" alt="Uploaded Food Photo">
+            </div>
+        {% else %}
+            <p>No photo uploaded yet.</p>
+        {% endif %}
+
+        <!-- GET Photo Button -->
+        <div class="form-group">
+            <form id="viewForm" method="GET">
+                {% csrf_token %}
+                <button type="submit">View Photo</button>
+            </form>
+        </div>
+
+        <!-- Box to display response from the GET request -->
+        <div id="responseBox" class="response-box"></div>
+
+        <a href="/" class="back-link">Back to Home</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Handle the upload form submission via AJAX
+            $("#uploadForm").submit(function(event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+
+                $.ajax({
+                    url: "",
+                    type: "POST",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        alert(response.message);
+                    },
+                    error: function(xhr, errmsg, err) {
+                        alert("Error uploading photo: " + errmsg);
+                    }
+                });
+            });
+
+            // Handle the "GET Photo" button asynchronously
+            $("#viewForm").submit(function(event) {
+                event.preventDefault();
+
+                $.ajax({
+                    url: "{% url 'view_photo' %}",
+                    type: "GET",
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    success: function(data) {
+                        if (data.file_url) {
+                            $("#responseBox").html(`<h2>Latest Uploaded Photo:</h2><img src="${data.file_url}" alt="Uploaded Food Photo">`);
+                        } else {
+                            $("#responseBox").html("<p>No photo available.</p>");
+                        }
+                    },
+                    error: function(xhr, errmsg, err) {
+                        $("#responseBox").html("<p>Error fetching photo. Please try again.</p>");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

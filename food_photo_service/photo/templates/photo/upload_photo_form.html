@@ -1,0 +1,23 @@
+<!-- upload_photo_form.html -->
+<html>
+<head>
+    <title>Upload a Photo</title>
+</head>
+<body>
+    <h1>Upload a Photo</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="photo">Select a photo to upload:</label>
+        <input type="file" name="photo" id="photo" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    <h1>Get a Photo</h1>
+    <form method="GET" action="/view/">
+        <!-- {% csrf_token %} -->
+        <!-- <label for="photo">Select a photo to upload:</label> -->
+        <!-- <input type="file" name="photo" id="photo" required> -->
+        <button method="GET" type="submit">GET</button>
+    </form>
+</body>
+</html>
