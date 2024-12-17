@@ -44,6 +44,27 @@ class GeneratePresignedURLTestCase(TestCase):
         # Simulate a GET request to the view
         response = self.client.get(url)
         
+        # logger.debug('123fas21:', response)
+
         # Check if the response contains the expected URL
         self.assertEqual(response.status_code, 200)
         self.assertJSONEqual(str(response.content, encoding='utf8'), '{"url": "https://fake-presigned-url.com"}')
+
+
+from rest_framework.test import APITestCase
+from rest_framework import status
+from django.urls import reverse
+
+class MyApiTests(APITestCase):
+
+    def test_generate_presigned_url(self):
+        filename = "test_image.jpg"
+        file_size = 1024
+        url = reverse('generate_presigned_url', args=[filename, file_size])
+        
+        response = self.client.get(url)
+        
+        logger.debug(f"'12321:', {url}")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        # self.assertIn('url', response.data)
+        # self.assertTrue(response.data['url'].startswith("https://"))

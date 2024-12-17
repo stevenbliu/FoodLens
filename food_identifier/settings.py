@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'corsheaders'
     # 'food_photo_service',
     # 'food_photo_service.photo',
     # 'food_photo_service.photo.tests',
@@ -53,7 +54,22 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',  # make sure this is below CorsMiddleware
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # React dev server
+]
+
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
+    'PUT',
+    'DELETE',
+    'OPTIONS',
+]
+
 
 ROOT_URLCONF = "food_identifier.urls"
 
@@ -62,7 +78,7 @@ TEMPLATES = [
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
             # os.path.join(BASE_DIR, 'food_photo_service\photo\templates'),
-            # os.path.join(BASE_DIR, 'food_photo_service\photo'),
+            os.path.join(BASE_DIR, 'photo_handler'),
         ],
         "APP_DIRS": True,
         "OPTIONS": {

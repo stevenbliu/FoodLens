@@ -1,26 +1,40 @@
-from django.http import JsonResponse
 import boto3
-from botocore.exceptions import NoCredentialsError
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
+import json
 
-def generate_presigned_url(request, filename, file_size):
-    # Here, filename and file_size are passed as arguments from the URL pattern
-    s3_client = boto3.client(
-        's3',
-        aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
-        aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
-        region_name=settings.AWS_REGION,
-    )
+@csrf_exempt  # If you want to skip CSRF validation for the API endpoint
+def generate_presigned_url(request):
+    if request.method == 'POST':
+        try:
+            # Parse the JSON data from the request body
+            data = json.loads(request.body)
+            filename = data.get('filename')
+            file_size = data.get('file_size')
 
-    try:
-        # Generate a pre-signed URL to upload a file to S3
-        response = s3_client.generate_presigned_url('put_object',
-                                                    Params={'Bucket': settings.AWS_STORAGE_BUCKET_NAME,
+            if not filename or not file_size:
+                return JsonResponse({'error': 'Missing filename or file_size in the request body'}, status=400)
+
+            # Initialize the S3 client
+            s3_client = boto3.client('s3', region_name=settings.AWS_REGION)
+
+            # Generate a pre-signed URL
+            response = s3_client.generate_presigned_url('put_object',
+                                                        Params={
+                                                            'Bucket': settings.AWS_STORAGE_BUCKET_NAME,
                                                             'Key': filename,
-                                                            'ContentType': 'image/jpeg',  # or your required content type
-                                                            'ContentLength': file_size},
-                                                    ExpiresIn=3600)  # URL expires in 1 hour
-        return JsonResponse({'url': response})
+                                                            'ContentType': 'image/jpeg',  # Adjust as necessary
+                                                            'ContentLength': file_size
+                                                        },
+                                                        ExpiresIn=3600)  # URL expires in 1 hour
+            print(filename, file_size)
+            return JsonResponse({'url': response})
 
-    except NoCredentialsError:
-        return JsonResponse({'error': 'No credentials found'}, status=400)
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Invalid JSON data'}, status=400)
+
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+    else:
+        return JsonResponse({'error': 'Invalid HTTP method. Use POST.'}, status=405)

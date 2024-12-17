@@ -130,3 +130,5 @@ Traceback (most recent call last):
   File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\json\encoder.py", line 180, in default
     raise TypeError(f'Object of type {o.__class__.__name__} '
 TypeError: Object of type MagicMock is not JSON serializable
+'12321:', <JsonResponse status_code=200, "application/json">
+'12321:', /photo-handler/generate-presigned-url/test_image.jpg/1024/
