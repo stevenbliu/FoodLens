@@ -23,29 +23,34 @@ function App() {
     try {
       // Request presigned URL from the backend
       // const response = await fetch(`/photo-handler/generate-presigned-url/${file.name}/${file.size}/`);
-
+      console.log("Fetch requested")
       const response = await fetch('http://localhost:8000/photo-handler/get-presigned-url/', {
         method: 'POST',
         body: JSON.stringify({ filename: file.name, file_size: file.size }),
         headers: { 'Content-Type': 'application/json' }
     });
+
       const jsonResponse = await response.json();
   
       // console.log(jsonResponse);  // Log the response to check its structure
       console.log(jsonResponse)
 
       // Check if the response has the URL and key
-      // if (!jsonResponse.url || !jsonResponse.key) {
-      //   throw new Error("Invalid response from server");
-      // }
-      console.log(response)
-  
-      // // Upload the image to S3 using the presigned URL
-      // const uploadResponse = await fetch(jsonResponse.url, {
-      //   method: 'PUT',
-      //   body: file,
-      // });
-      // console.log('2')
+      if (!jsonResponse.url) {
+        throw new Error("Invalid response from server");
+      }
+
+      console.log('Uploading image')
+      // Upload the image to S3 using the presigned URL
+      const uploadResponse = await fetch(jsonResponse.url, {
+        method: 'PUT',
+        body: file,
+        headers:
+        {
+          'Content-Type': file.type
+        }
+      });
+      console.log('Compleed upload image')
 
       // if (uploadResponse.ok) {
       //   // After upload, display the uploaded image and send a request to identify the food
@@ -76,6 +81,10 @@ function App() {
     }
   };
 
+  const testButton = () => {
+    console.log('test buttoning...')
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -84,6 +93,10 @@ function App() {
         {/* Upload Form */}
         <input type="file" accept="image/*" onChange={handleFileChange} />
         <button onClick={handleImageUpload}>Upload Image</button>
+
+
+        {/* <input type="file" accept="image/*" onChange={handleFileChange} /> */}
+        <button onClick={testButton}>Test Button for immediate response</button>
 
         {/* Display Uploaded Image */}
         {imageUrl && <img src={imageUrl} alt="Uploaded Food" className="food-image" />}
