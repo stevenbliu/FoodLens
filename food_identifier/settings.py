@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-k@o4)mt$wt4p)4n(zspi981ylsv+%p52up3skc&zsy=c(5#5h8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['055f-76-126-145-131.ngrok-free.app', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'corsheaders'
+    'corsheaders',
+    'photo_handler'
     # 'food_photo_service',
     # 'food_photo_service.photo',
     # 'food_photo_service.photo.tests',

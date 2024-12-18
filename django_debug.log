@@ -132,3 +132,358 @@ Traceback (most recent call last):
 TypeError: Object of type MagicMock is not JSON serializable
 '12321:', <JsonResponse status_code=200, "application/json">
 '12321:', /photo-handler/generate-presigned-url/test_image.jpg/1024/
+Internal Server Error: /photo-handler/get-presigned-url/
+"POST /photo-handler/get-presigned-url/ HTTP/1.1" 500 719
+Internal Server Error: /photo-handler/get-presigned-url/
+"POST /photo-handler/get-presigned-url/ HTTP/1.1" 500 719
+Internal Server Error: /photo-handler/get-presigned-url/
+"POST /photo-handler/get-presigned-url/ HTTP/1.1" 500 719
+Internal Server Error: /photo-handler/get-presigned-url/
+"POST /photo-handler/get-presigned-url/ HTTP/1.1" 500 719
+Internal Server Error: /photo-handler/get-presigned-url/
+"POST /photo-handler/get-presigned-url/ HTTP/1.1" 500 719
+Internal Server Error: /photo-handler/get-presigned-url/
+"POST /photo-handler/get-presigned-url/ HTTP/1.1" 500 719
+Internal Server Error: /photo-handler/get-presigned-url/
+"POST /photo-handler/get-presigned-url/ HTTP/1.1" 500 719
+Internal Server Error: /photo-handler/get-presigned-url/
+"POST /photo-handler/get-presigned-url/ HTTP/1.1" 500 49
+Internal Server Error: /photo-handler/get-presigned-url/
+"POST /photo-handler/get-presigned-url/ HTTP/1.1" 500 90
+Internal Server Error: /photo-handler/get-presigned-url/
+"POST /photo-handler/get-presigned-url/ HTTP/1.1" 500 49
+'12321:', /photo-handler/get-presigned-url/
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 203
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 255
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 255
+Internal Server Error: /photo-handler/get-presigned-url/
+"POST /photo-handler/get-presigned-url/ HTTP/1.1" 500 66
+Internal Server Error: /photo-handler/get-presigned-url/
+"POST /photo-handler/get-presigned-url/ HTTP/1.1" 500 66
+Invalid HTTP_HOST header: 'db49-76-126-145-131.ngrok-free.app'. You may need to add 'db49-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'db49-76-126-145-131.ngrok-free.app'. You may need to add 'db49-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: 'db49-76-126-145-131.ngrok-free.app'. You may need to add 'db49-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'db49-76-126-145-131.ngrok-free.app'. You may need to add 'db49-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: 'db49-76-126-145-131.ngrok-free.app'. You may need to add 'db49-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'db49-76-126-145-131.ngrok-free.app'. You may need to add 'db49-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: 'db49-76-126-145-131.ngrok-free.app'. You may need to add 'db49-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'db49-76-126-145-131.ngrok-free.app'. You may need to add 'db49-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 134
+Invalid HTTP_HOST header: 'db49-76-126-145-131.ngrok-free.app'. You may need to add 'db49-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'db49-76-126-145-131.ngrok-free.app'. You may need to add 'db49-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: 'db49-76-126-145-131.ngrok-free.app'. You may need to add 'db49-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'db49-76-126-145-131.ngrok-free.app'. You may need to add 'db49-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 134
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 134
+Internal Server Error: /photo-handler/sns_endpoint
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 131, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to db49-76-126-145-131.ngrok-free.app/photo-handler/sns_endpoint/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+"POST /photo-handler/sns_endpoint HTTP/1.1" 500 75025
+Internal Server Error: /photo-handler/sns_endpoint
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 131, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to db49-76-126-145-131.ngrok-free.app/photo-handler/sns_endpoint/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+"POST /photo-handler/sns_endpoint HTTP/1.1" 500 75025
+Internal Server Error: /photo-handler/sns_endpoint
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 131, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to db49-76-126-145-131.ngrok-free.app/photo-handler/sns_endpoint/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+"POST /photo-handler/sns_endpoint HTTP/1.1" 500 75025
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 134
+Internal Server Error: /photo-handler/sns_endpoint
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 131, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to db49-76-126-145-131.ngrok-free.app/photo-handler/sns_endpoint/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+"POST /photo-handler/sns_endpoint HTTP/1.1" 500 75025
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 134
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 134
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 134
+Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '055f-76-126-145-131.ngrok-free.app'. You may need to add '055f-76-126-145-131.ngrok-free.app' to ALLOWED_HOSTS.
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 93
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 93
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 93
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 93
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 93
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 93

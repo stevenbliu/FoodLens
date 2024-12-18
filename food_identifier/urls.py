@@ -7,6 +7,8 @@ urlpatterns = [
     # path('data/', include('data_handler.urls')),
     # path('search/', include('search.urls')),
     path('photo-handler/', include('photo_handler.urls')),  # Include the photo_handler app's urls
+    # path('photo-handler'),  # Include the photo_handler app's urls
+
     # path('', include('food_identifier.urls')),  # Include food_identifier app's URLs (for generate-presigned-url)
 ]
 # project_name/urls.py

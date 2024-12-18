@@ -39,7 +39,7 @@ class GeneratePresignedURLTestCase(TestCase):
         file_size = 1024
         
         # Use the correct URL pattern and arguments
-        url = reverse('generate_presigned_url', args=[filename, file_size])
+        url = reverse('generate_presigned_url')
         
         # Simulate a GET request to the view
         response = self.client.get(url)
@@ -60,7 +60,7 @@ class MyApiTests(APITestCase):
     def test_generate_presigned_url(self):
         filename = "test_image.jpg"
         file_size = 1024
-        url = reverse('generate_presigned_url', args=[filename, file_size])
+        url = reverse('generate_presigned_url')
         
         response = self.client.get(url)
         
