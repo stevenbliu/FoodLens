@@ -487,3 +487,105 @@ Internal Server Error: /photo-handler/upload-notification/
 "GET /photo-handler/upload-notification/ HTTP/1.1" 500 93
 Internal Server Error: /photo-handler/upload-notification/
 "GET /photo-handler/upload-notification/ HTTP/1.1" 500 93
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 93
+Internal Server Error: /photo-handler/sns_endpoint/
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\photo_handler\views.py", line 129, in sns_endpoint
+    response = requests.get(subscribe_url)
+               ^^^^^^^^
+NameError: name 'requests' is not defined. Did you mean: 'request'?
+"POST /photo-handler/sns_endpoint/ HTTP/1.1" 500 81381
+Internal Server Error: /photo-handler/sns_endpoint/
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\photo_handler\views.py", line 129, in sns_endpoint
+    response = request.get(subscribe_url)
+               ^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'get'
+"POST /photo-handler/sns_endpoint/ HTTP/1.1" 500 81506
+Internal Server Error: /photo-handler/sns_endpoint/
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\photo_handler\views.py", line 129, in sns_endpoint
+    response = request.get(subscribe_url)
+               ^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'get'
+"POST /photo-handler/sns_endpoint/ HTTP/1.1" 500 81506
+Internal Server Error: /photo-handler/sns_endpoint/
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\photo_handler\views.py", line 129, in sns_endpoint
+    response = request.get(subscribe_url)
+               ^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'get'
+"POST /photo-handler/sns_endpoint/ HTTP/1.1" 500 81505
+Internal Server Error: /photo-handler/sns_endpoint/
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\photo_handler\views.py", line 129, in sns_endpoint
+    response = request.get(subscribe_url)
+               ^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'get'
+"POST /photo-handler/sns_endpoint/ HTTP/1.1" 500 81506
+Internal Server Error: /photo-handler/sns_endpoint/
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\photo_handler\views.py", line 129, in sns_endpoint
+    response = request.get(subscribe_url)
+               ^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'get'
+"POST /photo-handler/sns_endpoint/ HTTP/1.1" 500 81507
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 93
+Internal Server Error: /photo-handler/upload-notification/
+"GET /photo-handler/upload-notification/ HTTP/1.1" 500 93

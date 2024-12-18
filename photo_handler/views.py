@@ -88,19 +88,25 @@ from django.http import JsonResponse
 from .sns_service import send_sns_notification
 
 def upload_notification(request):
-    print(12321)
+    sns = boto3.client('sns', region_name='us-east-1')
+    topic_arn = "arn:aws:sns:us-east-1:509399626395:photoUploadAlert"  # Replace with your SNS topic ARN
+
     try:
-        # Trigger SNS notification (e.g., on file upload)
-        send_sns_notification('File uploaded successfully.')
-        return JsonResponse({'message': 'Notification sent successfully'})
+        response = sns.publish(
+            TopicArn=topic_arn,
+            Message="Test notification from Django!",
+            Subject="Test Subject"
+        )
+        return JsonResponse({"message": "Notification sent!", "response": response})
     except Exception as e:
-        return JsonResponse({'message': 'Failed to send notification', 'error': str(e)}, status=500)
+        return JsonResponse({"error": str(e)}, status=500)
     
 from .sns_service import subscribe_to_sns
 
 def subscribe_view(request):
     topic_arn = "arn:aws:sns:us-east-1:509399626395:photoUploadAlert"  # Replace with your SNS topic ARN
-    url_forward = 'https://055f-76-126-145-131.ngrok-free.app'
+    print(settings.ALLOWED_HOSTS[0])
+    url_forward = f'https://{settings.ALLOWED_HOSTS[0]}'
     endpoint = f"{url_forward}/photo-handler/sns_endpoint/"  # Replace with your endpoint URL
 
     response = subscribe_to_sns(topic_arn, endpoint)
@@ -112,16 +118,30 @@ def subscribe_view(request):
 
 from django.http import HttpResponse
 import json
+import requests
 
+@csrf_exempt
 def sns_endpoint(request):
-    print(request.method)
-    if request.method == 'POST':
-        body = json.loads(request.body)
-        # Validate the SNS message here (check signature, etc.)
+    print('sns_endpoint', request)
+    if request.method == "POST":
+        # Parse the incoming SNS notification
+        body = json.loads(request.body.decode("utf-8"))
         
-        # Handle your SNS message (e.g., trigger logic based on the notification)
-        print(f"Received SNS message: {body}")
+        sns_message_type = request.headers.get("x-amz-sns-message-type", None)
+        if sns_message_type == "SubscriptionConfirmation":
+            # Handle subscription confirmation
+            subscribe_url = body.get("SubscribeURL")
+            if subscribe_url:
+                # Confirm the subscription
+                response = requests.get(subscribe_url)
+                if response.status_code == 200:
+                    return JsonResponse({"message": "Subscription confirmed successfully!"})
+                else:
+                    return JsonResponse({"message": "Failed to confirm subscription!"}, status=500)
+        elif sns_message_type == "Notification":
+            # Handle regular notifications
+            print("Notification received:", body.get("Message"), request.body)
+            
+            return JsonResponse({"message": "Notification processed successfully!"})
 
-        # Return a success response
-        return HttpResponse(status=200)
-    return HttpResponse(status=400)
+    return JsonResponse({"error": "Invalid request"}, status=400)
