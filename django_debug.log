@@ -589,3 +589,152 @@ Internal Server Error: /photo-handler/upload-notification/
 "GET /photo-handler/upload-notification/ HTTP/1.1" 500 93
 Internal Server Error: /photo-handler/upload-notification/
 "GET /photo-handler/upload-notification/ HTTP/1.1" 500 93
+Internal Server Error: /photo-handler/sns_endpoint/
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\photo_handler\views.py", line 148, in sns_endpoint
+    parse_s3_notification(message)
+  File "C:\Users\Steven\GitHub\Food_Identifier\photo_handler\sns_service.py", line 43, in parse_s3_notification
+    data = json.loads(notification)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\json\decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\json\decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+"POST /photo-handler/sns_endpoint/ HTTP/1.1" 500 96433
+Internal Server Error: /photo-handler/sns_endpoint/
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\photo_handler\views.py", line 146, in sns_endpoint
+    print("Notification received:", parse_s3_notification(message))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\photo_handler\sns_service.py", line 43, in parse_s3_notification
+    data = json.loads(notification)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\json\decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\json\decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+"POST /photo-handler/sns_endpoint/ HTTP/1.1" 500 96946
+Internal Server Error: /photo-handler/sns_endpoint/
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\photo_handler\views.py", line 152, in sns_endpoint
+    filename = message['object_key'],  # Filename as saved in S3
+               ~~~~~~~^^^^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+"POST /photo-handler/sns_endpoint/ HTTP/1.1" 500 82951
+Internal Server Error: /photo-handler/sns_endpoint/
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\photo_handler\views.py", line 152, in sns_endpoint
+    filename = message['object_key'],  # Filename as saved in S3
+               ~~~~~~~^^^^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+"POST /photo-handler/sns_endpoint/ HTTP/1.1" 500 82952
+Internal Server Error: /photo-handler/sns_endpoint/
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\photo_handler\views.py", line 153, in sns_endpoint
+    filename = parsed_message['object_key'],  # Filename as saved in S3
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+"POST /photo-handler/sns_endpoint/ HTTP/1.1" 500 80911
+Internal Server Error: /photo-handler/sns_endpoint/
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\photo_handler\views.py", line 153, in sns_endpoint
+    filename = parsed_message['object_key'],  # Filename as saved in S3
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+"POST /photo-handler/sns_endpoint/ HTTP/1.1" 500 80911
+Internal Server Error: /photo-handler/sns_endpoint/
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\photo_handler\views.py", line 153, in sns_endpoint
+    filename = parsed_message['object_key'],  # Filename as saved in S3
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+"POST /photo-handler/sns_endpoint/ HTTP/1.1" 500 80910
+Internal Server Error: /photo-handler/sns_endpoint/
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\photo_handler\views.py", line 153, in sns_endpoint
+    filename = parsed_message['object_key'],  # Filename as saved in S3
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+"POST /photo-handler/sns_endpoint/ HTTP/1.1" 500 80910

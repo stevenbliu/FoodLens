@@ -1,0 +1,96 @@
+Internal Server Error: /photo-handler/sns_endpoint/
+Traceback (most recent call last):
+  File "C:\Users\Steven\GitHub\Food_Identifier\backend\photo_handler\views.py", line 152, in sns_endpoint
+    filename = parsed_message['object_key'],  # Filename as saved in S3
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\backend\photo_handler\views.py", line 160, in sns_endpoint
+    except IntegrityError as e:
+           ^^^^^^^^^^^^^^
+NameError: name 'IntegrityError' is not defined. Did you mean: 'InterruptedError'?
+"POST /photo-handler/sns_endpoint/ HTTP/1.1" 500 87136
+Internal Server Error: /photo-handler/sns_endpoint/
+Traceback (most recent call last):
+  File "C:\Users\Steven\GitHub\Food_Identifier\backend\photo_handler\views.py", line 152, in sns_endpoint
+    filename = parsed_message['object_key'],  # Filename as saved in S3
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\backend\photo_handler\views.py", line 160, in sns_endpoint
+    except IntegrityError as e:
+           ^^^^^^^^^^^^^^
+NameError: name 'IntegrityError' is not defined. Did you mean: 'InterruptedError'?
+"POST /photo-handler/sns_endpoint/ HTTP/1.1" 500 87137
+Internal Server Error: /photo-handler/sns_endpoint/
+Traceback (most recent call last):
+  File "C:\Users\Steven\GitHub\Food_Identifier\backend\photo_handler\views.py", line 151, in sns_endpoint
+    filename = parsed_message['object_key'],  # Filename as saved in S3
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\backend\photo_handler\views.py", line 159, in sns_endpoint
+    except IntegrityError as e:
+           ^^^^^^^^^^^^^^
+NameError: name 'IntegrityError' is not defined. Did you mean: 'InterruptedError'?
+"POST /photo-handler/sns_endpoint/ HTTP/1.1" 500 87137
+Internal Server Error: /photo-handler/sns_endpoint/
+Traceback (most recent call last):
+  File "C:\Users\Steven\GitHub\Food_Identifier\backend\photo_handler\views.py", line 151, in sns_endpoint
+    filename = parsed_message['object_key'],  # Filename as saved in S3
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\anaconda3\envs\food_identifier\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steven\GitHub\Food_Identifier\backend\photo_handler\views.py", line 159, in sns_endpoint
+    except IntegrityError as e:
+           ^^^^^^^^^^^^^^
+NameError: name 'IntegrityError' is not defined. Did you mean: 'InterruptedError'?
+"POST /photo-handler/sns_endpoint/ HTTP/1.1" 500 87137

@@ -16,13 +16,13 @@ def generate_presigned_url(request):
             filename = data.get('filename')
             file_size = data.get('file_size')
             md5Checksum = data.get('md5Checksum')
-            print(md5Checksum)
+            # print(md5Checksum)
             if not filename or not file_size:
                 return JsonResponse({'error': 'Missing filename or file_size in the request body'}, status=400)
 
             # Initialize the S3 client
             s3_client = boto3.client('s3', region_name=settings.AWS_REGION)
-            print(md5Checksum)
+            # print(md5Checksum)
 
             # Generate a pre-signed URL
             response = s3_client.generate_presigned_url('put_object',
@@ -85,11 +85,11 @@ def store_image_data(request):
     
 
 from django.http import JsonResponse
-from .sns_service import send_sns_notification
+from .sns_service import parse_s3_notification
 
 def upload_notification(request):
     sns = boto3.client('sns', region_name='us-east-1')
-    topic_arn = "arn:aws:sns:us-east-1:509399626395:photoUploadAlert"  # Replace with your SNS topic ARN
+    topic_arn = settings.AWS_SNS_S3_OBJECT_PUT_NOTIFS
 
     try:
         response = sns.publish(
@@ -104,8 +104,8 @@ def upload_notification(request):
 from .sns_service import subscribe_to_sns
 
 def subscribe_view(request):
-    topic_arn = "arn:aws:sns:us-east-1:509399626395:photoUploadAlert"  # Replace with your SNS topic ARN
-    print(settings.ALLOWED_HOSTS[0])
+    topic_arn = settings.AWS_SNS_S3_OBJECT_PUT_NOTIFS
+     # Replace with your SNS topic ARN
     url_forward = f'https://{settings.ALLOWED_HOSTS[0]}'
     endpoint = f"{url_forward}/photo-handler/sns_endpoint/"  # Replace with your endpoint URL
 
@@ -120,9 +120,10 @@ from django.http import HttpResponse
 import json
 import requests
 
+
 @csrf_exempt
 def sns_endpoint(request):
-    print('sns_endpoint', request)
+    # print('sns_endpoint', request)
     if request.method == "POST":
         # Parse the incoming SNS notification
         body = json.loads(request.body.decode("utf-8"))
@@ -140,8 +141,25 @@ def sns_endpoint(request):
                     return JsonResponse({"message": "Failed to confirm subscription!"}, status=500)
         elif sns_message_type == "Notification":
             # Handle regular notifications
-            print("Notification received:", body.get("Message"), request.body)
-            
+            message = body.get('Message')
+            if isinstance(message, str):
+                parsed_message = parse_s3_notification(message)
+                print("Notification received:", parsed_message)
+
+            try:
+                print('Storing message metadata')
+                image_metadata = Photo.objects.create(
+                    filename = parsed_message['object_key'],  # Filename as saved in S3
+                    file_size = parsed_message['object_size'], # File size in bytes
+                    s3_url = parsed_message['s3_url'],  # The S3 URL to access the photo
+                    # upload_time = models.DateTimeField(default=timezone.now)  # Time when the photo metadata is saved
+                    checksum = None,  # Optional field to store checksum (e.g., MD5)
+                    food_name = None  # Information about food (optional)
+                )
+                print('message metadata succced', image_metadata)
+            except IntegrityError as e:
+                print(f"Failed to save image metadata: {e}")
+
             return JsonResponse({"message": "Notification processed successfully!"})
 
     return JsonResponse({"error": "Invalid request"}, status=400)

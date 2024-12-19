@@ -81,6 +81,18 @@ function App() {
           // 'Content-MD5': md5Checksum, 
         }
       });
+
+      if (uploadResponse.ok) {
+        const message = {
+          bucket: 'your-s3-bucket-name',
+          key: 'uploaded-file-key',
+          event: 's3:ObjectCreated:Put',
+          timestamp: new Date().toISOString(),
+        };
+      
+        // Send the SNS notification with the message
+        // await sendSnsNotification(message);
+      }
       // Handle the response
       if (!uploadResponse.ok) {
         console.error('Upload failed:', uploadResponse.status, uploadResponse.statusText);
