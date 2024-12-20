@@ -1,18 +1,39 @@
 version: '3'
 services:
+  ngrok:
+    build: ./ngrok
+    container_name: ngrok
+    ports:
+      - "4040:4040"  # Expose ngrok's local web UI for inspection (optional)
+    environment:
+      - NGROK_AUTH_TOKEN=2qNdZosMDVnwxHqSGboqmwvMAnU_255r8dcJ33XuERDghSPaV # Optional, if you have a paid account
+  # ngrok:
+  #   image: ngrok/ngrok:alpine
+  #   environment:
+  #     - NGROK_AUTHTOKEN=2qNdZosMDVnwxHqSGboqmwvMAnU_255r8dcJ33XuERDghSPaV
+  #   # ports : "4040:4040"
+  #   command: http 8000 "--log" "/tmp/ngrok.log"
+  #   # network_mode: "host"
+
   backend:
     build: ./backend
     ports:
       - "8000:8000"
     depends_on:
       - db
+      - ngrok
     environment:
       - DATABASE_URL=postgres://user:password@db:5432/dbname
-  
+      - REACT_APP_API_URL=http://ngrok:4040  # Point to ngrok container
+
   frontend:
     build: ./frontend
     ports:
       - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - REACT_APP_API_URL=http://ngrok:4040  # Point to ngrok container
 
   db:
     image: postgres:13
