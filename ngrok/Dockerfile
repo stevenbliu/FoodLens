@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y bash curl jq
 
 # # Set ngrok authtoken
 # ARG NGROK_AUTH_TOKEN
-ENV NGROK_AUTH_TOKEN=2qNdZosMDVnwxHqSGboqmwvMAnU_255r8dcJ33XuERDghSPaV
+ENV NGROK_AUTH_TOKEN=....
 RUN echo "NGROK_AUTH_TOKEN is set to ${NGROK_AUTH_TOKEN} or $NGROK_AUTH_TOKEN"
 
 # Run the command to authenticate ngrok using the token

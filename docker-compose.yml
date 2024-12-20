@@ -1,3 +1,6 @@
+
+...
+
 version: '3'
 services:
   ngrok:
@@ -6,11 +9,11 @@ services:
     ports:
       - "4040:4040"  # Expose ngrok's local web UI for inspection (optional)
     environment:
-      - NGROK_AUTH_TOKEN=2qNdZosMDVnwxHqSGboqmwvMAnU_255r8dcJ33XuERDghSPaV # Optional, if you have a paid account
+      - NGROK_AUTH_TOKEN= ...# Optional, if you have a paid account
   # ngrok:
   #   image: ngrok/ngrok:alpine
   #   environment:
-  #     - NGROK_AUTHTOKEN=2qNdZosMDVnwxHqSGboqmwvMAnU_255r8dcJ33XuERDghSPaV
+  #     - NGROK_AUTHTOKEN=....
   #   # ports : "4040:4040"
   #   command: http 8000 "--log" "/tmp/ngrok.log"
   #   # network_mode: "host"
