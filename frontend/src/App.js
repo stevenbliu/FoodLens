@@ -12,7 +12,7 @@ function calculateMD5(file) {
       // Create an array from the result and calculate MD5 hash
       const arrayBuffer = e.target.result;
       const wordArray = CryptoJS.lib.WordArray.create(arrayBuffer);
-      
+
       // Calculate MD5 and return as Base64 string
       const md5 = CryptoJS.MD5(wordArray).toString(CryptoJS.enc.Base64);
       resolve(md5);
