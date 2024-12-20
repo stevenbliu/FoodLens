@@ -1,18 +1,19 @@
 version: '3'
-
 services:
-  # backend:
-  #   build: ./backend
-  #   ports:
-  #     - "8000:8000"
-  #   depends_on:
-  #     - db
-  #   environment:
-  #     - DATABASE_URL=postgres://user:password@db:5432/dbname
-  # frontend:
-  #   build: ./frontend
-  #   ports:
-  #     - "3000:3000"
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/dbname
+  
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+
   db:
     image: postgres:13
     environment:
@@ -24,5 +25,18 @@ services:
     ports:
       - "5432:5432"
 
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "80:80" # Access pgAdmin via localhost:80
+    depends_on:
+      - db
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
 volumes:
   pgdata:
+  pgadmin_data:
