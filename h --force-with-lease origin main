@@ -1,0 +1,21 @@
+[33m231296d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m frontend + backend-ngrok work in contaners
+[33m818ceba[m remove token
+[33m2e98d1c[m attempts to get ngrok public domain working
+[33m5f4f842[m connected all services
+[33m1a55020[m Merge branch 'main' of https://github.com/stevenbliu/Food_Identifier
+[33m12fbe82[m commit before reformat
+[33me34f31a[m Update README.md
+[33m69b2afd[m Rename Resume 12-15-2024.pdf to Resume.pdf
+[33mfa8e225[m new res
+[33m878e07f[m confirmed SNS notifications work with backend
+[33m392cc28[m used ngrok to create public domain + implentng SNS notifications
+[33m94fd3f5[m client successfully uploads files to s3 via pre-signed-url
+[33m54c18ad[m set up react front end
+[33mf61107c[m adding testing
+[33md0f08db[m cleaned
+[33m0072118[m Merge branch 'main' of https://github.com/stevenbliu/Food_Identifier
+[33m794ccb0[m cleaned
+[33m4f44958[m set up testing
+[33m8cffc5a[m Add files via upload
+[33mebf0301[m basic upload_photo works
+[33ma9d27f0[m Initial commit
