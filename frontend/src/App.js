@@ -3,6 +3,7 @@ import './App.css';
 
 import CryptoJS from 'crypto-js';  // Import crypto-js
 
+
 // Function to calculate the MD5 checksum
 function calculateMD5(file) {
   return new Promise((resolve, reject) => {
@@ -51,14 +52,19 @@ function App() {
       console.log('cheksum:', md5Checksum)
 
       console.log("Fetch requested")
-      const response = await fetch('http://localhost:8000/photo-handler/get-presigned-url/', {
+
+      const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
+
+      const response = await fetch(`https:/${REACT_APP_NGROK_PUBLIC_URL}/photo-handler/get-presigned-url/`, {
         method: 'POST',
         body: JSON.stringify({ filename: file.name, file_size: file.size, md5Checksum: md5Checksum }),
         headers: { 'Content-Type': 'application/json' }
     });
+      console.log("Fetch requested2")
 
       const jsonResponse = await response.json();
-  
+      console.log("Fetch requested3")
+
       // console.log(jsonResponse);  // Log the response to check its structure
       console.log(jsonResponse)
 
@@ -132,12 +138,57 @@ function App() {
   };
 
   const testButton = async () => {
-    console.log('test buttoning...')
-    const response = await fetch('http://localhost:8000/photo-handler/upload-notification/', {
+    console.log('test buttoning...!!!!')
+    const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
+
+    const response = await fetch(`${REACT_APP_NGROK_PUBLIC_URL}/photo-handler/upload-notification/`, {
+        method: 'GET',
+    });
+    
+    console.log(response.ok);
+}
+
+const subscribe_view = async () => {
+  console.log('subscribe_view buttoning...')
+  const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
+  // const REACT_APP_NGROK_PUBLIC_URL = '9644-76-126-145-131.ngrok-free.app'
+  console.log(REACT_APP_NGROK_PUBLIC_URL)
+  const response = await fetch(`https:/${REACT_APP_NGROK_PUBLIC_URL}/photo-handler/subscribe_view/`, {
       method: 'GET',
   });
-    console.log(response.ok)
-  }
+  
+  console.log(response.ok);
+  console.log(response)
+
+}
+
+const sns_endpoint = async () => {
+  console.log('sns_endpoint buttoning...')
+  const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
+  console.log(REACT_APP_NGROK_PUBLIC_URL)
+
+  const response = await fetch(`https:/${REACT_APP_NGROK_PUBLIC_URL}/photo-handler/sns_endpoint/`, {
+      method: 'GET',
+  });
+  
+  console.log(response.ok);
+  console.log(response)
+
+}
+
+const upload_notification = async () => {
+  console.log('upload_notification buttoning...')
+  const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
+  console.log(REACT_APP_NGROK_PUBLIC_URL)
+  const response = await fetch(`https:/${REACT_APP_NGROK_PUBLIC_URL}/photo-handler/upload-notification/`, {
+      method: 'GET',
+  });
+  
+  console.log(response.ok);
+  console.log(response)
+}
+
+
 
   return (
     <div className="App">
@@ -148,6 +199,10 @@ function App() {
         <input type="file" accept="image/*" onChange={handleFileChange} className="file-input" />
         <button onClick={handleImageUpload} className="upload-button">Upload Image</button>
         <button onClick={testButton} className="test-button">Test Button</button>
+        <button onClick={upload_notification} className="upload_notification-button"> upload_notification Button</button>
+        <button onClick={sns_endpoint} className="sns_endpoint-button">sns_endpoint Button</button>
+        <button onClick={subscribe_view} className="subscribe_view-button">subscribe_view Button</button>
+
         </div>
 
       </header>

@@ -1,25 +1,31 @@
-
-...
-
 version: '3'
 services:
+  # static-site:
+  #   image: dockersamples/static-site
+  #   build: ./static-site
+  #   ports:
+  #     - "8000:80"
+  #   restart: always
+
   ngrok:
-    build: ./ngrok
-    container_name: ngrok
-    ports:
-      - "4040:4040"  # Expose ngrok's local web UI for inspection (optional)
+    image: ngrok/ngrok:latest
+    command:
+      - "http"
+      # - "http://host.docker.internal:8000"  # Pointing to the backend service on port 8000
+      - "http://backend:8000"
     environment:
-      - NGROK_AUTH_TOKEN= ...# Optional, if you have a paid account
-  # ngrok:
-  #   image: ngrok/ngrok:alpine
-  #   environment:
-  #     - NGROK_AUTHTOKEN=....
-  #   # ports : "4040:4040"
-  #   command: http 8000 "--log" "/tmp/ngrok.log"
-  #   # network_mode: "host"
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+    ports:
+      - "4040:4040"
+    # depends_on:
+      # - static-site
 
   backend:
     build: ./backend
+    # volumes:
+      # - ./backend:/app
+      # - ./backend:/photo_handler
+
     ports:
       - "8000:8000"
     depends_on:
@@ -27,7 +33,10 @@ services:
       - ngrok
     environment:
       - DATABASE_URL=postgres://user:password@db:5432/dbname
-      - REACT_APP_API_URL=http://ngrok:4040  # Point to ngrok container
+      - REACT_APP_API_URL=http://backend:8000  # Use internal backend service
+      # - NGROK_API=http://ngrok:4040/api/tunnels
+    env_file:
+      - ./.env
 
   frontend:
     build: ./frontend
@@ -35,8 +44,15 @@ services:
       - "3000:3000"
     depends_on:
       - backend
+      - ngrok
     environment:
-      - REACT_APP_API_URL=http://ngrok:4040  # Point to ngrok container
+      - REACT_APP_API_URL=http://backend:8000  # Use internal backend service
+      # - CHOKIDAR_USEPOLLING=true
+    # volumes:
+      # - ./frontend:/src
+      # - ./frontend:/app
+
+    # working_dir: /frontend
 
   db:
     image: postgres:13
@@ -55,7 +71,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: admin@example.com
       PGADMIN_DEFAULT_PASSWORD: admin
     ports:
-      - "80:80" # Access pgAdmin via localhost:80
+      - "5050:80"
     depends_on:
       - db
     volumes:

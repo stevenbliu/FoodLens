@@ -25,7 +25,6 @@ SECRET_KEY = "django-insecure-k@o4)mt$wt4p)4n(zspi981ylsv+%p52up3skc&zsy=c(5#5h8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['1a92-76-126-145-131.ngrok-free.app', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -162,6 +161,10 @@ AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 AWS_REGION = os.getenv('AWS_REGION')
 AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
 AWS_SNS_S3_OBJECT_PUT_NOTIFS = os.getenv('AWS_SNS_S3_OBJECT_PUT_NOTIFS')
+
+NGROK_PUBLIC_URL = os.getenv('NGROK_PUBLIC_URL')
+ALLOWED_HOSTS = [NGROK_PUBLIC_URL, 'localhost', '127.0.0.1']
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -194,3 +197,5 @@ LOGGING = {
         },
     },
 }
+
+print('Allowed Hosts:', ALLOWED_HOSTS)

@@ -1,10 +1,10 @@
 # Use a lightweight base image
-# FROM alpine:latest
-FROM ngrok/ngrok:latest
+FROM alpine:latest
+# FROM ngrok/ngrok:latest
 
 # Install dependencies (bash, curl, and jq for parsing ngrok API response)
 USER root
-RUN apt-get update && apt-get install -y bash curl jq
+# RUN apt-get update && apt-get install -y bash curl jq
 
 # RUN apk add --no-cache bash curl jq
 
@@ -14,14 +14,7 @@ RUN apt-get update && apt-get install -y bash curl jq
 #     rm /tmp/ngrok.zip
 
 # # Set ngrok authtoken
-# ARG NGROK_AUTH_TOKEN
-ENV NGROK_AUTH_TOKEN=....
-RUN echo "NGROK_AUTH_TOKEN is set to ${NGROK_AUTH_TOKEN} or $NGROK_AUTH_TOKEN"
-
-# Run the command to authenticate ngrok using the token
-# RUN echo $NGROK_AUTH_TOKEN && ngrok authtoken $NGROK_AUTH_TOKEN
-
-# Run the authtoken command
+ARG NGROK_AUTH_TOKEN
 RUN ngrok authtoken $NGROK_AUTH_TOKEN
 
 # # Expose the ngrok port
@@ -38,4 +31,6 @@ RUN chmod +x /usr/local/bin/run_ngrok.sh
 # CMD ["ngrok", "http", "8000"]
 
 # Set the default command to run ngrok
-CMD ["/bin/bash", "/usr/local/bin/run_ngrok.sh"]
+# CMD ["/bin/bash", "/usr/local/bin/run_ngrok.sh"]
+
+CMD []

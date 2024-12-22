@@ -1,0 +1,453 @@
+2024-12-22 05:09:55,321 - DEBUG - Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+2024-12-22 05:09:55,324 - DEBUG - Changing event name from before-call.apigateway to before-call.api-gateway
+2024-12-22 05:09:55,325 - DEBUG - Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+2024-12-22 05:09:55,327 - DEBUG - Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+2024-12-22 05:09:55,327 - DEBUG - Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+2024-12-22 05:09:55,332 - DEBUG - Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+2024-12-22 05:09:55,334 - DEBUG - Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+2024-12-22 05:09:55,343 - DEBUG - Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+2024-12-22 05:09:55,344 - DEBUG - Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+2024-12-22 05:09:55,345 - DEBUG - Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+2024-12-22 05:09:55,345 - DEBUG - Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+2024-12-22 05:09:55,360 - DEBUG - IMDS ENDPOINT: http://169.254.169.254/
+2024-12-22 05:09:55,363 - DEBUG - Looking for credentials via: env
+2024-12-22 05:09:55,363 - DEBUG - Looking for credentials via: assume-role
+2024-12-22 05:09:55,363 - DEBUG - Looking for credentials via: assume-role-with-web-identity
+2024-12-22 05:09:55,364 - DEBUG - Looking for credentials via: sso
+2024-12-22 05:09:55,364 - DEBUG - Looking for credentials via: shared-credentials-file
+2024-12-22 05:09:55,364 - DEBUG - Looking for credentials via: custom-process
+2024-12-22 05:09:55,365 - DEBUG - Looking for credentials via: config-file
+2024-12-22 05:09:55,365 - DEBUG - Looking for credentials via: ec2-credentials-file
+2024-12-22 05:09:55,366 - DEBUG - Looking for credentials via: boto-config
+2024-12-22 05:09:55,367 - DEBUG - Looking for credentials via: container-role
+2024-12-22 05:09:55,367 - DEBUG - Looking for credentials via: iam-role
+2024-12-22 05:09:55,372 - DEBUG - Starting new HTTP connection (1): 169.254.169.254:80
+2024-12-22 05:09:55,408 - DEBUG - Caught retryable HTTP exception while making metadata service request to http://169.254.169.254/latest/api/token: Could not connect to the endpoint URL: "http://169.254.169.254/latest/api/token"
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/botocore/httpsession.py", line 464, in send
+    urllib_response = conn.urlopen(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/retry.py", line 527, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/local/lib/python3.9/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 416, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/local/lib/python3.9/site-packages/botocore/awsrequest.py", line 96, in request
+    rval = super().request(method, url, body, headers, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.9/http/client.py", line 1285, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.9/http/client.py", line 1331, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.9/http/client.py", line 1280, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.9/site-packages/botocore/awsrequest.py", line 123, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.9/site-packages/botocore/awsrequest.py", line 223, in send
+    return super().send(str)
+  File "/usr/local/lib/python3.9/http/client.py", line 980, in send
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7fc932d7e970>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/botocore/utils.py", line 458, in _fetch_metadata_token
+    response = self._session.send(request.prepare())
+  File "/usr/local/lib/python3.9/site-packages/botocore/httpsession.py", line 493, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://169.254.169.254/latest/api/token"
+2024-12-22 05:09:55,524 - DEBUG - Starting new HTTP connection (2): 169.254.169.254:80
+2024-12-22 05:09:55,526 - DEBUG - Caught retryable HTTP exception while making metadata service request to http://169.254.169.254/latest/meta-data/iam/security-credentials/: Could not connect to the endpoint URL: "http://169.254.169.254/latest/meta-data/iam/security-credentials/"
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/botocore/httpsession.py", line 464, in send
+    urllib_response = conn.urlopen(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/retry.py", line 527, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/local/lib/python3.9/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 416, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/local/lib/python3.9/site-packages/botocore/awsrequest.py", line 96, in request
+    rval = super().request(method, url, body, headers, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.9/http/client.py", line 1285, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.9/http/client.py", line 1331, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.9/http/client.py", line 1280, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.9/site-packages/botocore/awsrequest.py", line 123, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.9/site-packages/botocore/awsrequest.py", line 223, in send
+    return super().send(str)
+  File "/usr/local/lib/python3.9/http/client.py", line 980, in send
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7fc932d9cc70>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/botocore/utils.py", line 513, in _get_request
+    response = self._session.send(request.prepare())
+  File "/usr/local/lib/python3.9/site-packages/botocore/httpsession.py", line 493, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://169.254.169.254/latest/meta-data/iam/security-credentials/"
+2024-12-22 05:09:55,527 - DEBUG - Max number of attempts exceeded (1) when attempting to retrieve data from metadata service.
+2024-12-22 05:09:55,572 - DEBUG - Loading JSON file: /usr/local/lib/python3.9/site-packages/botocore/data/endpoints.json
+2024-12-22 05:09:55,618 - DEBUG - Loading JSON file: /usr/local/lib/python3.9/site-packages/botocore/data/sdk-default-configuration.json
+2024-12-22 05:09:55,618 - DEBUG - Event choose-service-name: calling handler <function handle_service_name_alias at 0x7fc93329fe50>
+2024-12-22 05:10:03,415 - DEBUG - Loading JSON file: /usr/local/lib/python3.9/site-packages/botocore/data/sns/2010-03-31/service-2.json.gz
+2024-12-22 05:10:03,439 - DEBUG - Loading JSON file: /usr/local/lib/python3.9/site-packages/botocore/data/sns/2010-03-31/endpoint-rule-set-1.json.gz
+2024-12-22 05:10:03,472 - DEBUG - Loading JSON file: /usr/local/lib/python3.9/site-packages/botocore/data/partitions.json
+2024-12-22 05:10:03,473 - DEBUG - Event creating-client-class.sns: calling handler <function add_generate_presigned_url at 0x7fc932efbc10>
+2024-12-22 05:10:03,474 - DEBUG - Looking for endpoint for sns via: environment_service
+2024-12-22 05:10:03,475 - DEBUG - Looking for endpoint for sns via: environment_global
+2024-12-22 05:10:03,475 - DEBUG - Looking for endpoint for sns via: config_service
+2024-12-22 05:10:03,475 - DEBUG - Looking for endpoint for sns via: config_global
+2024-12-22 05:10:03,476 - DEBUG - No configured endpoint found.
+2024-12-22 05:10:03,478 - DEBUG - Setting sns timeout as (60, 60)
+2024-12-22 05:10:03,489 - DEBUG - Loading JSON file: /usr/local/lib/python3.9/site-packages/botocore/data/_retry.json
+2024-12-22 05:10:03,490 - DEBUG - Registering retry handlers for service: sns
+2024-12-22 05:14:30,977 - DEBUG - Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+2024-12-22 05:14:30,979 - DEBUG - Changing event name from before-call.apigateway to before-call.api-gateway
+2024-12-22 05:14:30,980 - DEBUG - Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+2024-12-22 05:14:30,982 - DEBUG - Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+2024-12-22 05:14:30,982 - DEBUG - Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+2024-12-22 05:14:30,983 - DEBUG - Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+2024-12-22 05:14:30,984 - DEBUG - Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+2024-12-22 05:14:30,987 - DEBUG - Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+2024-12-22 05:14:30,987 - DEBUG - Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+2024-12-22 05:14:30,988 - DEBUG - Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+2024-12-22 05:14:30,988 - DEBUG - Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+2024-12-22 05:14:31,003 - DEBUG - IMDS ENDPOINT: http://169.254.169.254/
+2024-12-22 05:14:31,005 - DEBUG - Looking for credentials via: env
+2024-12-22 05:14:31,005 - DEBUG - Looking for credentials via: assume-role
+2024-12-22 05:14:31,005 - DEBUG - Looking for credentials via: assume-role-with-web-identity
+2024-12-22 05:14:31,006 - DEBUG - Looking for credentials via: sso
+2024-12-22 05:14:31,006 - DEBUG - Looking for credentials via: shared-credentials-file
+2024-12-22 05:14:31,007 - DEBUG - Looking for credentials via: custom-process
+2024-12-22 05:14:31,007 - DEBUG - Looking for credentials via: config-file
+2024-12-22 05:14:31,007 - DEBUG - Looking for credentials via: ec2-credentials-file
+2024-12-22 05:14:31,008 - DEBUG - Looking for credentials via: boto-config
+2024-12-22 05:14:31,008 - DEBUG - Looking for credentials via: container-role
+2024-12-22 05:14:31,008 - DEBUG - Looking for credentials via: iam-role
+2024-12-22 05:14:31,009 - DEBUG - Starting new HTTP connection (1): 169.254.169.254:80
+2024-12-22 05:14:31,062 - DEBUG - Caught retryable HTTP exception while making metadata service request to http://169.254.169.254/latest/api/token: Could not connect to the endpoint URL: "http://169.254.169.254/latest/api/token"
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/botocore/httpsession.py", line 464, in send
+    urllib_response = conn.urlopen(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/retry.py", line 527, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/local/lib/python3.9/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 416, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/local/lib/python3.9/site-packages/botocore/awsrequest.py", line 96, in request
+    rval = super().request(method, url, body, headers, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.9/http/client.py", line 1285, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.9/http/client.py", line 1331, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.9/http/client.py", line 1280, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.9/site-packages/botocore/awsrequest.py", line 123, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.9/site-packages/botocore/awsrequest.py", line 223, in send
+    return super().send(str)
+  File "/usr/local/lib/python3.9/http/client.py", line 980, in send
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f37287eb970>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/botocore/utils.py", line 458, in _fetch_metadata_token
+    response = self._session.send(request.prepare())
+  File "/usr/local/lib/python3.9/site-packages/botocore/httpsession.py", line 493, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://169.254.169.254/latest/api/token"
+2024-12-22 05:14:31,197 - DEBUG - Starting new HTTP connection (2): 169.254.169.254:80
+2024-12-22 05:14:31,198 - DEBUG - Caught retryable HTTP exception while making metadata service request to http://169.254.169.254/latest/meta-data/iam/security-credentials/: Could not connect to the endpoint URL: "http://169.254.169.254/latest/meta-data/iam/security-credentials/"
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/botocore/httpsession.py", line 464, in send
+    urllib_response = conn.urlopen(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/retry.py", line 527, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/local/lib/python3.9/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 416, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/local/lib/python3.9/site-packages/botocore/awsrequest.py", line 96, in request
+    rval = super().request(method, url, body, headers, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.9/http/client.py", line 1285, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.9/http/client.py", line 1331, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.9/http/client.py", line 1280, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.9/site-packages/botocore/awsrequest.py", line 123, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.9/site-packages/botocore/awsrequest.py", line 223, in send
+    return super().send(str)
+  File "/usr/local/lib/python3.9/http/client.py", line 980, in send
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f3728807c70>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/botocore/utils.py", line 513, in _get_request
+    response = self._session.send(request.prepare())
+  File "/usr/local/lib/python3.9/site-packages/botocore/httpsession.py", line 493, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://169.254.169.254/latest/meta-data/iam/security-credentials/"
+2024-12-22 05:14:31,199 - DEBUG - Max number of attempts exceeded (1) when attempting to retrieve data from metadata service.
+2024-12-22 05:14:31,247 - DEBUG - Loading JSON file: /usr/local/lib/python3.9/site-packages/botocore/data/endpoints.json
+2024-12-22 05:14:31,281 - DEBUG - Loading JSON file: /usr/local/lib/python3.9/site-packages/botocore/data/sdk-default-configuration.json
+2024-12-22 05:14:31,282 - DEBUG - Event choose-service-name: calling handler <function handle_service_name_alias at 0x7f3728d0ae50>
+2024-12-22 05:14:38,579 - DEBUG - Loading JSON file: /usr/local/lib/python3.9/site-packages/botocore/data/sns/2010-03-31/service-2.json.gz
+2024-12-22 05:14:38,598 - DEBUG - Loading JSON file: /usr/local/lib/python3.9/site-packages/botocore/data/sns/2010-03-31/endpoint-rule-set-1.json.gz
+2024-12-22 05:14:38,625 - DEBUG - Loading JSON file: /usr/local/lib/python3.9/site-packages/botocore/data/partitions.json
+2024-12-22 05:14:38,627 - DEBUG - Event creating-client-class.sns: calling handler <function add_generate_presigned_url at 0x7f3728968c10>
+2024-12-22 05:14:38,628 - DEBUG - Looking for endpoint for sns via: environment_service
+2024-12-22 05:14:38,628 - DEBUG - Looking for endpoint for sns via: environment_global
+2024-12-22 05:14:38,628 - DEBUG - Looking for endpoint for sns via: config_service
+2024-12-22 05:14:38,628 - DEBUG - Looking for endpoint for sns via: config_global
+2024-12-22 05:14:38,629 - DEBUG - No configured endpoint found.
+2024-12-22 05:14:38,630 - DEBUG - Setting sns timeout as (60, 60)
+2024-12-22 05:14:38,654 - DEBUG - Loading JSON file: /usr/local/lib/python3.9/site-packages/botocore/data/_retry.json
+2024-12-22 05:14:38,655 - DEBUG - Registering retry handlers for service: sns
+2024-12-22 05:15:44,322 - DEBUG - Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+2024-12-22 05:15:44,324 - DEBUG - Changing event name from before-call.apigateway to before-call.api-gateway
+2024-12-22 05:15:44,325 - DEBUG - Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+2024-12-22 05:15:44,327 - DEBUG - Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+2024-12-22 05:15:44,327 - DEBUG - Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+2024-12-22 05:15:44,328 - DEBUG - Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+2024-12-22 05:15:44,329 - DEBUG - Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+2024-12-22 05:15:44,332 - DEBUG - Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+2024-12-22 05:15:44,332 - DEBUG - Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+2024-12-22 05:15:44,332 - DEBUG - Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+2024-12-22 05:15:44,333 - DEBUG - Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+2024-12-22 05:15:44,336 - DEBUG - IMDS ENDPOINT: http://169.254.169.254/
+2024-12-22 05:15:44,338 - DEBUG - Looking for credentials via: env
+2024-12-22 05:15:44,339 - DEBUG - Looking for credentials via: assume-role
+2024-12-22 05:15:44,339 - DEBUG - Looking for credentials via: assume-role-with-web-identity
+2024-12-22 05:15:44,339 - DEBUG - Looking for credentials via: sso
+2024-12-22 05:15:44,340 - DEBUG - Looking for credentials via: shared-credentials-file
+2024-12-22 05:15:44,340 - DEBUG - Looking for credentials via: custom-process
+2024-12-22 05:15:44,340 - DEBUG - Looking for credentials via: config-file
+2024-12-22 05:15:44,341 - DEBUG - Looking for credentials via: ec2-credentials-file
+2024-12-22 05:15:44,341 - DEBUG - Looking for credentials via: boto-config
+2024-12-22 05:15:44,341 - DEBUG - Looking for credentials via: container-role
+2024-12-22 05:15:44,342 - DEBUG - Looking for credentials via: iam-role
+2024-12-22 05:15:44,344 - DEBUG - Starting new HTTP connection (1): 169.254.169.254:80
+2024-12-22 05:15:44,384 - DEBUG - Caught retryable HTTP exception while making metadata service request to http://169.254.169.254/latest/api/token: Could not connect to the endpoint URL: "http://169.254.169.254/latest/api/token"
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/botocore/httpsession.py", line 464, in send
+    urllib_response = conn.urlopen(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/retry.py", line 527, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/local/lib/python3.9/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 416, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/local/lib/python3.9/site-packages/botocore/awsrequest.py", line 96, in request
+    rval = super().request(method, url, body, headers, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.9/http/client.py", line 1285, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.9/http/client.py", line 1331, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.9/http/client.py", line 1280, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.9/site-packages/botocore/awsrequest.py", line 123, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.9/site-packages/botocore/awsrequest.py", line 223, in send
+    return super().send(str)
+  File "/usr/local/lib/python3.9/http/client.py", line 980, in send
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f3220ad4f40>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/botocore/utils.py", line 458, in _fetch_metadata_token
+    response = self._session.send(request.prepare())
+  File "/usr/local/lib/python3.9/site-packages/botocore/httpsession.py", line 493, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://169.254.169.254/latest/api/token"
+2024-12-22 05:15:44,500 - DEBUG - Starting new HTTP connection (2): 169.254.169.254:80
+2024-12-22 05:15:44,501 - DEBUG - Caught retryable HTTP exception while making metadata service request to http://169.254.169.254/latest/meta-data/iam/security-credentials/: Could not connect to the endpoint URL: "http://169.254.169.254/latest/meta-data/iam/security-credentials/"
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/botocore/httpsession.py", line 464, in send
+    urllib_response = conn.urlopen(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/retry.py", line 527, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/local/lib/python3.9/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 416, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/local/lib/python3.9/site-packages/botocore/awsrequest.py", line 96, in request
+    rval = super().request(method, url, body, headers, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.9/http/client.py", line 1285, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.9/http/client.py", line 1331, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.9/http/client.py", line 1280, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.9/site-packages/botocore/awsrequest.py", line 123, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.9/site-packages/botocore/awsrequest.py", line 223, in send
+    return super().send(str)
+  File "/usr/local/lib/python3.9/http/client.py", line 980, in send
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f3220a84340>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/botocore/utils.py", line 513, in _get_request
+    response = self._session.send(request.prepare())
+  File "/usr/local/lib/python3.9/site-packages/botocore/httpsession.py", line 493, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://169.254.169.254/latest/meta-data/iam/security-credentials/"
+2024-12-22 05:15:44,502 - DEBUG - Max number of attempts exceeded (1) when attempting to retrieve data from metadata service.
+2024-12-22 05:15:44,504 - DEBUG - Loading JSON file: /usr/local/lib/python3.9/site-packages/botocore/data/endpoints.json
+2024-12-22 05:15:44,520 - DEBUG - Loading JSON file: /usr/local/lib/python3.9/site-packages/botocore/data/sdk-default-configuration.json
+2024-12-22 05:15:44,521 - DEBUG - Event choose-service-name: calling handler <function handle_service_name_alias at 0x7f3220f98280>
+2024-12-22 05:15:44,547 - DEBUG - Loading JSON file: /usr/local/lib/python3.9/site-packages/botocore/data/sns/2010-03-31/service-2.json.gz
+2024-12-22 05:15:44,569 - DEBUG - Loading JSON file: /usr/local/lib/python3.9/site-packages/botocore/data/sns/2010-03-31/endpoint-rule-set-1.json.gz
+2024-12-22 05:15:44,570 - DEBUG - Loading JSON file: /usr/local/lib/python3.9/site-packages/botocore/data/partitions.json
+2024-12-22 05:15:44,572 - DEBUG - Event creating-client-class.sns: calling handler <function add_generate_presigned_url at 0x7f3220c55040>
+2024-12-22 05:15:44,573 - DEBUG - Looking for endpoint for sns via: environment_service
+2024-12-22 05:15:44,573 - DEBUG - Looking for endpoint for sns via: environment_global
+2024-12-22 05:15:44,574 - DEBUG - Looking for endpoint for sns via: config_service
+2024-12-22 05:15:44,574 - DEBUG - Looking for endpoint for sns via: config_global
+2024-12-22 05:15:44,575 - DEBUG - No configured endpoint found.
+2024-12-22 05:15:44,578 - DEBUG - Setting sns timeout as (60, 60)
+2024-12-22 05:15:44,581 - DEBUG - Loading JSON file: /usr/local/lib/python3.9/site-packages/botocore/data/_retry.json
+2024-12-22 05:15:44,582 - DEBUG - Registering retry handlers for service: sns

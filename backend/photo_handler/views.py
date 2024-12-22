@@ -6,16 +6,34 @@ import json
 import time
 import datetime
 from .models import Photo
+import logging
+import traceback
+
+# Set up the basic configuration for logging
+logging.basicConfig(
+    level=logging.DEBUG,  # Set the threshold for logging messages (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+    format='%(asctime)s - %(levelname)s - %(message)s',  # Format of log messages
+    handlers=[
+        logging.FileHandler('app.log'),  # Log to a file named 'app.log'
+        logging.StreamHandler()            # Also log to console
+    ]
+)
+
+# Create a logger object
+logger = logging.getLogger(__name__)
+
 
 @csrf_exempt  # If you want to skip CSRF validation for the API endpoint
 def generate_presigned_url(request):
     if request.method == 'POST':
         try: 
+            logger.info('genereat presgined url')
+
             # Parse the JSON data from the request body
             data = json.loads(request.body)
             filename = data.get('filename')
             file_size = data.get('file_size')
-            md5Checksum = data.get('md5Checksum')
+            # md5Checksum = data.get('md5Checksum')
             # print(md5Checksum)
             if not filename or not file_size:
                 return JsonResponse({'error': 'Missing filename or file_size in the request body'}, status=400)
@@ -35,15 +53,15 @@ def generate_presigned_url(request):
                                                         },
                                                         ExpiresIn=3600)  # URL expires in 1 hour
             
-            # Save data to the database
-            image_metadata = Photo.objects.create(
-                filename = filename,  # Filename as saved in S3
-                file_size = 10,  # File size in bytes
-                # s3_url = response.data.url,  # The S3 URL to access the photo
-                # upload_time = datetime.datetime.now().time(),  # Time when the photo metadata is saved
-                checksum = 111  # Optional field to store checksum (e.g., MD5) 
+            # # Save data to the database
+            # image_metadata = Photo.objects.create(
+            #     filename = filename,  # Filename as saved in S3
+            #     file_size = 10,  # File size in bytes
+            #     # s3_url = response.data.url,  # The S3 URL to access the photo
+            #     # upload_time = datetime.datetime.now().time(),  # Time when the photo metadata is saved
+            #     checksum = 111  # Optional field to store checksum (e.g., MD5) 
 
-            )
+            # )
 
             return JsonResponse({'url': response})
 
@@ -51,7 +69,9 @@ def generate_presigned_url(request):
             return JsonResponse({'error': 'Invalid JSON data'}, status=400)
 
         except Exception as e:
-            return JsonResponse({'error': str(e)}, status=500)
+            error_details = traceback.format_exc()  # Captures the full traceback
+            logger.error(f"Error occurred: {error_details}")  # Logs the traceback
+            return JsonResponse({'error': str(e), 'details': error_details}, status=500)
     else:
         return JsonResponse({'error': 'Invalid HTTP method. Use POST.'}, status=405)
     
