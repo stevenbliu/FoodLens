@@ -1,185 +1,233 @@
-import boto3
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.exceptions import ValidationError
+from rest_framework import status
 from django.conf import settings
-import json
-import time
-import datetime
+import boto3
 from .models import Photo
+from .serializers import PhotoSerializer
+from .sns_service import parse_s3_notification, subscribe_to_sns
 import logging
 import traceback
-
-# Set up the basic configuration for logging
-logging.basicConfig(
-    level=logging.DEBUG,  # Set the threshold for logging messages (DEBUG, INFO, WARNING, ERROR, CRITICAL)
-    format='%(asctime)s - %(levelname)s - %(message)s',  # Format of log messages
-    handlers=[
-        logging.FileHandler('app.log'),  # Log to a file named 'app.log'
-        logging.StreamHandler()            # Also log to console
-    ]
-)
-
-# Create a logger object
-logger = logging.getLogger(__name__)
-
-
-@csrf_exempt  # If you want to skip CSRF validation for the API endpoint
-def generate_presigned_url(request):
-    if request.method == 'POST':
-        try: 
-            logger.info('genereat presgined url')
-
-            # Parse the JSON data from the request body
-            data = json.loads(request.body)
-            filename = data.get('filename')
-            file_size = data.get('file_size')
-            # md5Checksum = data.get('md5Checksum')
-            # print(md5Checksum)
-            if not filename or not file_size:
-                return JsonResponse({'error': 'Missing filename or file_size in the request body'}, status=400)
-
-            # Initialize the S3 client
-            s3_client = boto3.client('s3', region_name=settings.AWS_REGION)
-            # print(md5Checksum)
-
-            # Generate a pre-signed URL
-            response = s3_client.generate_presigned_url('put_object',
-                                                        Params={
-                                                            'Bucket': settings.AWS_STORAGE_BUCKET_NAME,
-                                                            'Key': filename,
-                                                            'ContentType': 'image/png',  # Adjust as necessary
-                                                            'ContentLength': file_size,
-                                                            # 'Content-MD5': md5Checksum
-                                                        },
-                                                        ExpiresIn=3600)  # URL expires in 1 hour
-            
-            # # Save data to the database
-            # image_metadata = Photo.objects.create(
-            #     filename = filename,  # Filename as saved in S3
-            #     file_size = 10,  # File size in bytes
-            #     # s3_url = response.data.url,  # The S3 URL to access the photo
-            #     # upload_time = datetime.datetime.now().time(),  # Time when the photo metadata is saved
-            #     checksum = 111  # Optional field to store checksum (e.g., MD5) 
-
-            # )
-
-            return JsonResponse({'url': response})
-
-        except json.JSONDecodeError:
-            return JsonResponse({'error': 'Invalid JSON data'}, status=400)
-
-        except Exception as e:
-            error_details = traceback.format_exc()  # Captures the full traceback
-            logger.error(f"Error occurred: {error_details}")  # Logs the traceback
-            return JsonResponse({'error': str(e), 'details': error_details}, status=500)
-    else:
-        return JsonResponse({'error': 'Invalid HTTP method. Use POST.'}, status=405)
-    
-
-def store_image_data(request):
-    if request.method == 'POST':
-        try:
-            data = json.loads(request.body)
-            image_key = data.get('imageKey')
-            title = data.get('title')
-            description = data.get('description')
-
-            if not image_key or not title:
-                return JsonResponse({'error': 'Missing image key or title'}, status=400)
-
-            # Save data to the database
-            image_metadata = Photo.objects.create(
-                image_key=image_key,
-                title=title,
-                description=description
-            )
-
-            return JsonResponse({'success': True, 'id': image_metadata.id})
-
-        except json.JSONDecodeError:
-            return JsonResponse({'error': 'Invalid JSON data'}, status=400)
-        except Exception as e:
-            return JsonResponse({'error': str(e)}, status=500)
-    else:
-        return JsonResponse({'error': 'Invalid HTTP method. Use POST.'}, status=405)
-    
-
-from django.http import JsonResponse
-from .sns_service import parse_s3_notification
-
-def upload_notification(request):
-    sns = boto3.client('sns', region_name='us-east-1')
-    topic_arn = settings.AWS_SNS_S3_OBJECT_PUT_NOTIFS
-
-    try:
-        response = sns.publish(
-            TopicArn=topic_arn,
-            Message="Test notification from Django!",
-            Subject="Test Subject"
-        )
-        return JsonResponse({"message": "Notification sent!", "response": response})
-    except Exception as e:
-        return JsonResponse({"error": str(e)}, status=500)
-    
-from .sns_service import subscribe_to_sns
-
-def subscribe_view(request):
-    topic_arn = settings.AWS_SNS_S3_OBJECT_PUT_NOTIFS
-     # Replace with your SNS topic ARN
-    url_forward = f'https://{settings.ALLOWED_HOSTS[0]}'
-    endpoint = f"{url_forward}/photo-handler/sns_endpoint/"  # Replace with your endpoint URL
-
-    response = subscribe_to_sns(topic_arn, endpoint)
-    print(response)
-    if response:
-        return JsonResponse({"message": "Successfully subscribed!"})
-    else:
-        return JsonResponse({"message": "Subscription failed!"})
-
-from django.http import HttpResponse
-import json
 import requests
 
+# Set up logging
+logger = logging.getLogger(__name__)
 
-@csrf_exempt
-def sns_endpoint(request):
-    # print('sns_endpoint', request)
-    if request.method == "POST":
-        # Parse the incoming SNS notification
-        body = json.loads(request.body.decode("utf-8"))
+# # DRF Views
+# class GeneratePresignedURLView(APIView):
+#     """Generates a pre-signed URL for S3 uploads and saves metadata."""
+#     def post(self, request):
+#         data = request.data
+#         filename = data.get('filename')
+#         file_size = data.get('file_size')
+
+#         if not filename or not file_size:
+#             raise ValidationError({'error': 'Missing filename or file_size'})
+
+#         try:
+#             # Generate the pre-signed URL
+#             s3_client = boto3.client('s3', region_name=settings.AWS_REGION)
+#             presigned_url = s3_client.generate_presigned_url(
+#                 'put_object',
+#                 Params={
+#                     'Bucket': settings.AWS_STORAGE_BUCKET_NAME,
+#                     'Key': filename,
+#                     'ContentType': 'image/png',
+#                     'ContentLength': file_size,
+#                 },
+#                 ExpiresIn=3600,
+#             )
+
+#             # Save metadata to the database
+#             serializer = PhotoSerializer(data={'filename': filename, 'file_size': file_size})
+#             if serializer.is_valid():
+#                 serializer.save()
+#                 return Response({'url': presigned_url}, status=status.HTTP_201_CREATED)
+#             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+#         except Exception as e:
+#             logger.error(f"Error generating pre-signed URL: {traceback.format_exc()}")
+#             return Response({'error': 'Server error', 'details': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+# class SNSNotificationHandlerView(APIView):
+#     """Handles incoming SNS notifications."""
+#     def post(self, request):
+#         body = request.data
+#         sns_message_type = request.headers.get("x-amz-sns-message-type", None)
+
+#         if sns_message_type == "SubscriptionConfirmation":
+#             subscribe_url = body.get("SubscribeURL")
+#             if subscribe_url:
+#                 response = requests.get(subscribe_url)
+#                 if response.status_code == 200:
+#                     return Response({"message": "Subscription confirmed successfully!"})
+#                 return Response({"message": "Failed to confirm subscription!"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+#         elif sns_message_type == "Notification":
+#             message = body.get('Message')
+#             if isinstance(message, str):
+#                 parsed_message = parse_s3_notification(message)
+#                 logger.info(f"Notification received: {parsed_message}")
+
+#                 serializer = PhotoSerializer(data={
+#                     'filename': parsed_message['object_key'],
+#                     'file_size': parsed_message['object_size'],
+#                 })
+#                 if serializer.is_valid():
+#                     serializer.save()
+#                     return Response({"message": "Notification processed successfully!"}, status=status.HTTP_200_OK)
+#                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+#         return Response({"error": "Invalid SNS message type"}, status=status.HTTP_400_BAD_REQUEST)
+
+# class SNSSubscribeView(APIView):
+#     """Subscribes to the SNS topic."""
+#     def get(self, request):
+#         topic_arn = settings.AWS_SNS_S3_OBJECT_PUT_NOTIFS
+#         url_forward = f'https://{settings.ALLOWED_HOSTS[0]}'
+#         endpoint = f"{url_forward}/photo-handler/sns_endpoint/"
+#         response = subscribe_to_sns(topic_arn, endpoint)
+
+#         if response:
+#             return Response({"message": "Successfully subscribed!"})
+#         return Response({"message": "Subscription failed!"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+# class StoreImageDataView(APIView):
+#     """Handles storing additional image data."""
+#     def post(self, request):
+#         serializer = PhotoSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response({'success': True, 'id': serializer.instance.id}, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+# class InjectTestDataView(APIView):
+#     """Simulates injecting data into the database for testing purposes."""
+    
+#     def post(self, request, *args, **kwargs):
+#         try:
+#             # Example data to insert
+#             test_data = {
+#                 "filename": "test_image.jpg",
+#                 "file_size": 1024,
+#             }
+
+#             # Serialize and save the test data
+#             serializer = PhotoSerializer(data=test_data)
+#             if serializer.is_valid():
+#                 serializer.save()
+                
+#                 # Log table details
+#                 table_name = Photo._meta.db_table  # Get the name of the table
+#                 logger.info(f"Test data injected into table: {table_name}")
+#                 logger.info(f"Table fields: {', '.join([field.name for field in Photo._meta.fields])}")
+#                 return Response({"message": "Test data injected successfully!"}, status=status.HTTP_201_CREATED)
+#             else:
+#                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
+#         except Exception as e:
+#             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.exceptions import ValidationError
+from rest_framework import status
+from django.conf import settings
+import boto3
+from .models import Photo
+from .serializers import PhotoSerializer
+
+class CreatePhotoView(APIView):
+    """Handles creating a photo and generating a presigned URL."""
+    
+    def post(self, request):
+        data = request.data
+        filename = data.get('filename')
+        file_size = data.get('file_size')
+
+        if not filename or not file_size:
+            raise ValidationError({'error': 'Missing filename or file_size'})
+
+        try:
+            # Generate presigned URL
+            s3_client = boto3.client('s3', region_name=settings.AWS_REGION)
+            presigned_url = s3_client.generate_presigned_url(
+                'put_object',
+                Params={
+                    'Bucket': settings.AWS_STORAGE_BUCKET_NAME,
+                    'Key': filename,
+                    'ContentType': 'image/png',
+                    'ContentLength': file_size,
+                },
+                ExpiresIn=3600,
+            )
+
+            # Save metadata to the database
+            serializer = PhotoSerializer(data={'filename': filename, 'file_size': file_size})
+            if serializer.is_valid():
+                photo = serializer.save()
+                return Response({'id': photo.id, 'url': presigned_url}, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class PhotoDetailView(APIView):
+    """Handles retrieving metadata for a photo."""
+    
+    def get(self, request, id):
+        try:
+            photo = Photo.objects.get(id=id)
+            serializer = PhotoSerializer(photo)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Photo.DoesNotExist:
+            return Response({'error': 'Photo not found'}, status=status.HTTP_404_NOT_FOUND)
+
+class UploadPhotoView(APIView):
+    """Optional view for tracking uploads (if not handled in frontend)."""
+    
+    def post(self, request, id):
+        # Placeholder for upload tracking logic, if needed
+        return Response({'message': 'Upload tracked successfully!'}, status=status.HTTP_200_OK)
+
+class SNSNotificationHandlerView(APIView):
+    """Handles SNS notifications for uploads."""
+    
+    def post(self, request, id):
+        body = request.data
         sns_message_type = request.headers.get("x-amz-sns-message-type", None)
-        if sns_message_type == "SubscriptionConfirmation":
-            # Handle subscription confirmation
-            subscribe_url = body.get("SubscribeURL")
-            if subscribe_url:
-                # Confirm the subscription
-                response = requests.get(subscribe_url)
-                if response.status_code == 200:
-                    return JsonResponse({"message": "Subscription confirmed successfully!"})
-                else:
-                    return JsonResponse({"message": "Failed to confirm subscription!"}, status=500)
-        elif sns_message_type == "Notification":
-            # Handle regular notifications
+
+        if sns_message_type == "Notification":
+            # Handle the S3 notification
             message = body.get('Message')
             if isinstance(message, str):
-                parsed_message = parse_s3_notification(message)
-                print("Notification received:", parsed_message)
+                # Parse and update database with upload status
+                # Add your custom logic here
+                return Response({"message": "Notification processed successfully!"}, status=status.HTTP_200_OK)
 
-            try:
-                print('Storing message metadata')
-                image_metadata = Photo.objects.create(
-                    filename = parsed_message['object_key'],  # Filename as saved in S3
-                    file_size = parsed_message['object_size'], # File size in bytes
-                    s3_url = parsed_message['s3_url'],  # The S3 URL to access the photo
-                    # upload_time = models.DateTimeField(default=timezone.now)  # Time when the photo metadata is saved
-                    checksum = None,  # Optional field to store checksum (e.g., MD5)
-                    food_name = None  # Information about food (optional)
-                )
-                print('message metadata succced', image_metadata)
-            except IntegrityError as e:
-                print(f"Failed to save image metadata: {e}")
+        return Response({"error": "Invalid SNS message type"}, status=status.HTTP_400_BAD_REQUEST)
 
-            return JsonResponse({"message": "Notification processed successfully!"})
+class SNSSubscribeView(APIView):
+    """Subscribes to the SNS topic."""
+    
+    def get(self, request):
+        topic_arn = settings.AWS_SNS_S3_OBJECT_PUT_NOTIFS
+        endpoint = f"https://{settings.ALLOWED_HOSTS[0]}/photos/upload-notification/"
+        response = subscribe_to_sns(topic_arn, endpoint)
 
-    return JsonResponse({"error": "Invalid request"}, status=400)
+        if response:
+            return Response({"message": "Successfully subscribed!"})
+        return Response({"message": f"Subscription failed! Endpoint: {endpoint}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class InjectTestDataView(APIView):
+    """Injects test data into the database."""
+    
+    def post(self, request):
+        test_data = {"filename": "test_image.jpg", "file_size": 1024}
+        serializer = PhotoSerializer(data=test_data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"message": "Test data injected successfully!"}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

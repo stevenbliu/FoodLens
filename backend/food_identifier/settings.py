@@ -37,12 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'corsheaders',
-    'photo_handler'
-    # 'food_photo_service',
-    # 'food_photo_service.photo',
-    # 'food_photo_service.photo.tests',
-
-
+    'photo_handler',
+    'rest_framework',
 
 ]
 
@@ -197,5 +193,3 @@ LOGGING = {
         },
     },
 }
-
-print('Allowed Hosts:', ALLOWED_HOSTS)

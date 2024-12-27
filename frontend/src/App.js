@@ -3,27 +3,9 @@ import './App.css';
 
 import CryptoJS from 'crypto-js';  // Import crypto-js
 
+const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
 
-// Function to calculate the MD5 checksum
-function calculateMD5(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    
-    reader.onload = function (e) {
-      // Create an array from the result and calculate MD5 hash
-      const arrayBuffer = e.target.result;
-      const wordArray = CryptoJS.lib.WordArray.create(arrayBuffer);
-
-      // Calculate MD5 and return as Base64 string
-      const md5 = CryptoJS.MD5(wordArray).toString(CryptoJS.enc.Base64);
-      resolve(md5);
-    };
-    
-    reader.onerror = reject;
-    
-    reader.readAsArrayBuffer(file); // Use readAsArrayBuffer instead of readAsBinaryString
-  });
-}
+const photo_url = `https:/${REACT_APP_NGROK_PUBLIC_URL}/photo`
 
 function App() {
   const [file, setFile] = useState(null);
@@ -48,16 +30,14 @@ function App() {
       // Request presigned URL from the backend
       // const response = await fetch(`/photo-handler/generate-presigned-url/${file.name}/${file.size}/`);
       
-      const md5Checksum = await calculateMD5(file);
-      console.log('cheksum:', md5Checksum)
+      // const md5Checksum = await calculateMD5(file);
+      // console.log('cheksum:', md5Checksum)
 
       console.log("Fetch requested")
-
-      const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
-
-      const response = await fetch(`https:/${REACT_APP_NGROK_PUBLIC_URL}/photo-handler/get-presigned-url/`, {
+      
+      const response = await fetch(`${photo_url}/get-presigned-url/`, {
         method: 'POST',
-        body: JSON.stringify({ filename: file.name, file_size: file.size, md5Checksum: md5Checksum }),
+        body: JSON.stringify({ filename: file.name, file_size: file.size}),
         headers: { 'Content-Type': 'application/json' }
     });
       console.log("Fetch requested2")
@@ -141,7 +121,7 @@ function App() {
     console.log('test buttoning...!!!!')
     const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
 
-    const response = await fetch(`${REACT_APP_NGROK_PUBLIC_URL}/photo-handler/upload-notification/`, {
+      const response = await fetch(`${photo_url}/upload-notification/`, {
         method: 'GET',
     });
     
@@ -153,7 +133,7 @@ const subscribe_view = async () => {
   const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
   // const REACT_APP_NGROK_PUBLIC_URL = '9644-76-126-145-131.ngrok-free.app'
   console.log(REACT_APP_NGROK_PUBLIC_URL)
-  const response = await fetch(`https:/${REACT_APP_NGROK_PUBLIC_URL}/photo-handler/subscribe_view/`, {
+  const response = await fetch(`${photo_url}/subscribe_view/`, {
       method: 'GET',
   });
   
@@ -167,7 +147,7 @@ const sns_endpoint = async () => {
   const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
   console.log(REACT_APP_NGROK_PUBLIC_URL)
 
-  const response = await fetch(`https:/${REACT_APP_NGROK_PUBLIC_URL}/photo-handler/sns_endpoint/`, {
+  const response = await fetch(`${photo_url}/sns_endpoint/`, {
       method: 'GET',
   });
   
@@ -180,7 +160,7 @@ const upload_notification = async () => {
   console.log('upload_notification buttoning...')
   const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
   console.log(REACT_APP_NGROK_PUBLIC_URL)
-  const response = await fetch(`https:/${REACT_APP_NGROK_PUBLIC_URL}/photo-handler/upload-notification/`, {
+  const response = await fetch(`${photo_url}/upload-notification/`, {
       method: 'GET',
   });
   

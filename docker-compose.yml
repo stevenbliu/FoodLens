@@ -19,6 +19,18 @@ services:
       - "4040:4040"
     # depends_on:
       # - static-site
+  # ngrok2:
+  #   image: ngrok/ngrok:latest
+  #   command:
+  #     - "http"
+  #     # - "http://host.docker.internal:8000"  # Pointing to the backend service on port 8000
+  #     - "http://frontend:3000"
+  #   environment:
+  #     NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+  #   ports:
+  #     - "4041:4040"
+  #   # depends_on:
+  #     # - static-site
 
   backend:
     build: ./backend
@@ -77,6 +89,48 @@ services:
     volumes:
       - pgadmin_data:/var/lib/pgadmin
 
+  elasticsearch:
+    image: elastic/elasticsearch:8.16.2
+    environment:
+      - discovery.type=single-node
+      - ELASTIC_PASSWORD=yourpassword
+      - xpack.security.enabled=true
+      - ELASTICSEARCH_USERNAME=user           # Elasticsearch username
+      - ELASTICSEARCH_PASSWORD=pass123           # Elasticsearch password
+      - ELASTICSEARCH_SSL_ENABLED=true
+      - ELASTICSEARCH_SSL_CERTIFICATE=/usr/share/elasticsearch/config/certs/elasticsearch.crt
+      - ELASTICSEARCH_SSL_KEY=/usr/share/elasticsearch/config/certs/elasticsearch.key
+      - ELASTICSEARCH_SSL_CA_CERTIFICATE=/usr/share/elasticsearch/config/certs/ca.crt
+    volumes:
+      - ./certs:/usr/share/elasticsearch/config/certs  # Mount the certs directory into the container
+      - esdata:/usr/share/elasticsearch/data  # Use a named volume for Elasticsearch data
+
+    ports:
+      - "9200:9200"  # Elasticsearch default port
+
+  kibana:
+    image: kibana:8.16.0
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - ELASTICSEARCH_USERNAME=user           # Replace with your actual username
+      - ELASTICSEARCH_PASSWORD=pass123           # Replace with your actual password
+      - SERVER_NAME=kibana
+      - SERVER_HOST=0.0.0.0
+      - ELASTICSEARCH_SSL_ENABLED=true
+      - ELASTICSEARCH_SSL_CERTIFICATE_AUTHORITIES=/usr/share/kibana/config/certs/ca.crt
+      # - xpack.encryptedSavedObjects.encryptionKey=your-encryption-key-here
+
+    volumes:
+      - ./certs:/usr/share/kibana/config/certs  # Mount the
+      - esdata:/usr/share/elasticsearch/data  # Use a named volume for Elasticsearch data
+
+    ports:
+      - "5601:5601"  # Kibana default port
+    depends_on:
+      - elasticsearch
+
+
 volumes:
   pgdata:
   pgadmin_data:
+  esdata:

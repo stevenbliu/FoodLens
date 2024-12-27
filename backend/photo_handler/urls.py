@@ -1,13 +1,35 @@
-# photo_handler/urls.py
 from django.urls import path
 from . import views
 
-urlpatterns = [
-    path('get-presigned-url/', views.generate_presigned_url, name='generate_presigned_url'),
-    path('store-image-data/', views.store_image_data, name='store_image_data'),
-    path('upload-notification/', views.upload_notification, name='upload_notification'),
-    path('sns_endpoint/', views.sns_endpoint, name='sns_endpoint'),
-    path('subscribe_view/', views.subscribe_view, name='subscribe_view'),
-        # path('send-sns-notification/', send_sns_notification, name='send_sns_notification'),
+# urlpatterns = [
+#     path('get-presigned-url/', views.GeneratePresignedURLView.as_view(), name='generate_presigned_url'),
+#     path('store-image-data/', views.StoreImageDataView.as_view(), name='store_image_data'),
+#     path('upload-notification/', views.SNSNotificationHandlerView.as_view(), name='upload_notification'),
+#     path('sns-endpoint/', views.SNSNotificationHandlerView.as_view(), name='sns_endpoint'),  # Use for SNS notifications
+#     path('subscribe-view/', views.SNSSubscribeView.as_view(), name='subscribe_view'),
+#     path('inject-test-view/', views.InjectTestDataView.as_view(), name='inject_test_view'),
+# ]
 
+# ideal implementation
+urlpatterns = [
+    # path('', views.PhotoListView.as_view(), name='photo_list'),
+
+    # Endpoint for creating a photo and generating a presigned URL
+    path('create/', views.CreatePhotoView.as_view(), name='create_photo'),
+
+    # Endpoint for accessing a photo's metadata (GET)
+    path('<int:id>/', views.PhotoDetailView.as_view(), name='photo_detail'),
+
+    # Endpoint for uploading the photo to S3
+    # (handled in the frontend using the presigned URL)
+    path('<int:id>/upload/', views.UploadPhotoView.as_view(), name='upload_photo'),
+
+    # Endpoint for handling SNS notifications (image uploaded to S3)
+    path('<int:id>/upload-notification/', views.SNSNotificationHandlerView.as_view(), name='upload_notification'),
+
+    # Endpoint for subscribing to SNS notifications
+    path('subscribe/', views.SNSSubscribeView.as_view(), name='subscribe_view'),
+
+    # Endpoint for injecting test data (optional)
+    path('inject-test-data/', views.InjectTestDataView.as_view(), name='inject_test_data'),
 ]
