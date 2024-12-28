@@ -204,8 +204,10 @@ class SNSNotificationHandlerView(APIView):
             message = body.get('Message')
             if isinstance(message, str):
                 # Parse and update database with upload status
+                parsed_message = parse_s3_notification(message)
                 # Add your custom logic here
-                return Response({"message": "Notification processed successfully!"}, status=status.HTTP_200_OK)
+                print(12)
+                return Response({"message": f"Notification processed successfully! \n {parsed_message}"}, status=status.HTTP_200_OK)
 
         return Response({"error": "Invalid SNS message type"}, status=status.HTTP_400_BAD_REQUEST)
 
@@ -226,6 +228,8 @@ class InjectTestDataView(APIView):
     
     def post(self, request):
         test_data = {"filename": "test_image.jpg", "file_size": 1024}
+        print(12)
+
         serializer = PhotoSerializer(data=test_data)
         if serializer.is_valid():
             serializer.save()

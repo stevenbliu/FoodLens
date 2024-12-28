@@ -47,6 +47,9 @@ services:
       - DATABASE_URL=postgres://user:password@db:5432/dbname
       - REACT_APP_API_URL=http://backend:8000  # Use internal backend service
       # - NGROK_API=http://ngrok:4040/api/tunnels
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+
     env_file:
       - ./.env
 
@@ -69,7 +72,8 @@ services:
       # - ./frontend:/src
       - ./frontend/src:/app/src
       - /app/node_modules  # Optional: This ensures node_modules are not overridden by your local system
-
+    env_file:
+      - ./.env
 
     # working_dir: /frontend
 

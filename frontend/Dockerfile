@@ -3,6 +3,7 @@ FROM node:16
 WORKDIR /app
 COPY frontend/package.json frontend/package-lock.json ./
 # COPY . ./
+COPY . .
 
 
 RUN apt-get update && apt-get install -y jq

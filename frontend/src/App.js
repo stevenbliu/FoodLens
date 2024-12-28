@@ -3,7 +3,7 @@ import './App.css';
 // import CryptoJS from 'crypto-js';  // Import crypto-js
 
 const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
-const photo_url = `https://${REACT_APP_NGROK_PUBLIC_URL}/photos`;
+const photo_url = `${REACT_APP_NGROK_PUBLIC_URL}/photos`;
 
 function App() {
   const [file, setFile] = useState(null);
@@ -89,6 +89,7 @@ function App() {
     try {
       const response = await fetch(`${photo_url}/upload-notification/`, { method: 'GET' });
       console.log(response.ok);
+      console.log(response.body);
     } catch (error) {
       console.error('Error in testButton:', error);
     }
