@@ -1,174 +1,128 @@
 import React, { useState } from 'react';
 import './App.css';
-
-import CryptoJS from 'crypto-js';  // Import crypto-js
+// import CryptoJS from 'crypto-js';  // Import crypto-js
 
 const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
-
-const photo_url = `https:/${REACT_APP_NGROK_PUBLIC_URL}/photo`
+const photo_url = `https://${REACT_APP_NGROK_PUBLIC_URL}/photos`;
 
 function App() {
   const [file, setFile] = useState(null);
   const [imageUrl, setImageUrl] = useState('');
   const [foodInfo, setFoodInfo] = useState(null);
+  const [fileName, setFileName] = useState("");
 
-  // Handle file selection
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
+    if (selectedFile) {
+      setFile(selectedFile); // Track file for upload
+      setFileName(selectedFile.name); // Update state with file name
+    } else {
+      setFile(null); // Clear file state if no file is selected
+      setFileName(""); // Clear file name
+    }
   };
 
   const handleImageUpload = async () => {
     if (!file) {
       alert("Please select an image.");
       return;
-      console.log('1')
-
     }
-    console.log('12')
 
     try {
       // Request presigned URL from the backend
-      // const response = await fetch(`/photo-handler/generate-presigned-url/${file.name}/${file.size}/`);
-      
-      // const md5Checksum = await calculateMD5(file);
-      // console.log('cheksum:', md5Checksum)
-
-      console.log("Fetch requested")
-      
-      const response = await fetch(`${photo_url}/get-presigned-url/`, {
+      console.log(JSON.stringify({ filename: file.name, file_size: file.size }));
+      const response = await fetch(`${photo_url}/create/`, {
         method: 'POST',
-        body: JSON.stringify({ filename: file.name, file_size: file.size}),
+        body: JSON.stringify({ filename: file.name, file_size: file.size }),
         headers: { 'Content-Type': 'application/json' }
-    });
-      console.log("Fetch requested2")
+      });
 
       const jsonResponse = await response.json();
-      console.log("Fetch requested3")
-
-      // console.log(jsonResponse);  // Log the response to check its structure
-      console.log(jsonResponse)
 
       // Check if the response has the URL and key
       if (!jsonResponse.url) {
         throw new Error("Invalid response from server");
       }
 
+      console.log('Presigned URL obtained, starting image upload...');
 
-      // return
-      // return 
-      console.log('Uploading image')
       // Upload the image to S3 using the presigned URL
       const uploadResponse = await fetch(jsonResponse.url, {
         method: 'PUT',
         body: file,
-        headers:
-        {
+        headers: {
           'Content-Type': file.type,
-          // 'Content-MD5': md5Checksum, 
         }
       });
 
       if (uploadResponse.ok) {
-        const message = {
-          bucket: 'your-s3-bucket-name',
-          key: 'uploaded-file-key',
-          event: 's3:ObjectCreated:Put',
-          timestamp: new Date().toISOString(),
-        };
-      
-        // Send the SNS notification with the message
-        // await sendSnsNotification(message);
-      }
-      // Handle the response
-      if (!uploadResponse.ok) {
-        console.error('Upload failed:', uploadResponse.status, uploadResponse.statusText);
-        const errorResponse = await uploadResponse.text();
-        console.error('Error response:', errorResponse);
-      } else {
         console.log('Upload successful');
-  }
 
-      // if (uploadResponse.ok) {
-      //   // After upload, display the uploaded image and send a request to identify the food
-      //   setImageUrl(`https://your-s3-bucket-url/${jsonResponse.key}`);
-      //   fetchFoodInfo(jsonResponse.key);
-      // } else {
-      //   throw new Error("Image upload failed");
-      // }
+        setImageUrl(`${jsonResponse.url}`);
+        // fetchFoodInfo(jsonResponse.key);
+      } else {
+        throw new Error('Upload failed');
+      }
     } catch (error) {
+      console.error("Error uploading image:", error);
       alert("Error uploading image: " + error.message);
     }
   };
 
-  // Fetch food information from backend
-  const fetchFoodInfo = async (imageKey) => {
-    try {
-      // Call your backend to identify the food (you can modify the endpoint as needed)
-      const response = await fetch(`/identify-food/${imageKey}/`);
-      const data = await response.json();
+  // const fetchFoodInfo = async (imageKey) => {
+  //   try {
+  //     const response = await fetch(`/identify-food/${imageKey}/`);
+  //     const data = await response.json();
 
-      if (data) {
-        setFoodInfo(data);
-      } else {
-        alert("No food identified.");
-      }
+  //     if (data) {
+  //       setFoodInfo(data);
+  //     } else {
+  //       alert("No food identified.");
+  //     }
+  //   } catch (error) {
+  //     alert("Error identifying food: " + error.message);
+  //   }
+  // };
+
+  const testButton = async () => {
+    console.log('Test button pressed');
+    try {
+      const response = await fetch(`${photo_url}/upload-notification/`, { method: 'GET' });
+      console.log(response.ok);
     } catch (error) {
-      alert("Error identifying food: " + error.message);
+      console.error('Error in testButton:', error);
     }
   };
 
-  const testButton = async () => {
-    console.log('test buttoning...!!!!')
-    const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
+  const subscribeView = async () => {
+    console.log('Subscribe view button pressed');
+    try {
+      const response = await fetch(`${photo_url}/subscribe_view/`, { method: 'GET' });
+      console.log(response.ok);
+    } catch (error) {
+      console.error('Error in subscribeView:', error);
+    }
+  };
 
-      const response = await fetch(`${photo_url}/upload-notification/`, {
-        method: 'GET',
-    });
-    
-    console.log(response.ok);
-}
+  const snsEndpoint = async () => {
+    console.log('SNS endpoint button pressed');
+    try {
+      const response = await fetch(`${photo_url}/sns_endpoint/`, { method: 'GET' });
+      console.log(response.ok);
+    } catch (error) {
+      console.error('Error in snsEndpoint:', error);
+    }
+  };
 
-const subscribe_view = async () => {
-  console.log('subscribe_view buttoning...')
-  const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
-  // const REACT_APP_NGROK_PUBLIC_URL = '9644-76-126-145-131.ngrok-free.app'
-  console.log(REACT_APP_NGROK_PUBLIC_URL)
-  const response = await fetch(`${photo_url}/subscribe_view/`, {
-      method: 'GET',
-  });
-  
-  console.log(response.ok);
-  console.log(response)
-
-}
-
-const sns_endpoint = async () => {
-  console.log('sns_endpoint buttoning...')
-  const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
-  console.log(REACT_APP_NGROK_PUBLIC_URL)
-
-  const response = await fetch(`${photo_url}/sns_endpoint/`, {
-      method: 'GET',
-  });
-  
-  console.log(response.ok);
-  console.log(response)
-
-}
-
-const upload_notification = async () => {
-  console.log('upload_notification buttoning...')
-  const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
-  console.log(REACT_APP_NGROK_PUBLIC_URL)
-  const response = await fetch(`${photo_url}/upload-notification/`, {
-      method: 'GET',
-  });
-  
-  console.log(response.ok);
-  console.log(response)
-}
-
-
+  const uploadNotification = async () => {
+    console.log('Upload notification button pressed');
+    try {
+      const response = await fetch(`${photo_url}/upload-notification/`, { method: 'GET' });
+      console.log(response.ok);
+    } catch (error) {
+      console.error('Error in uploadNotification:', error);
+    }
+  };
 
   return (
     <div className="App">
@@ -176,15 +130,43 @@ const upload_notification = async () => {
         <h1>Food Identifier</h1>
 
         <div className="button-container">
-        <input type="file" accept="image/*" onChange={handleFileChange} className="file-input" />
-        <button onClick={handleImageUpload} className="upload-button">Upload Image</button>
-        <button onClick={testButton} className="test-button">Test Button</button>
-        <button onClick={upload_notification} className="upload_notification-button"> upload_notification Button</button>
-        <button onClick={sns_endpoint} className="sns_endpoint-button">sns_endpoint Button</button>
-        <button onClick={subscribe_view} className="subscribe_view-button">subscribe_view Button</button>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            className="file-input"
+          />
+          {fileName && <p>Selected file: {fileName}</p>}
 
+          <button onClick={handleImageUpload} className="upload-button">
+            Upload Image
+          </button>
+          <button onClick={testButton} className="test-button">
+            Test212312 Button
+          </button>
+          <button onClick={uploadNotification} className="upload-notification-button">
+            Upload Notification Button
+          </button>
+          <button onClick={snsEndpoint} className="sns-endpoint-button">
+            SNS Endpoint Button
+          </button>
+          <button onClick={subscribeView} className="subscribe-view-button">
+            Subscribe View Button
+          </button>
         </div>
 
+        {/* Display the image if uploaded */}
+        {imageUrl && <img src={imageUrl} alt="Uploaded preview" className="uploaded-image" />}
+        
+        {/* Display food information */}
+        {foodInfo && (
+          <div className="food-info">
+            <h2>Food Info:</h2>
+            <p><strong>Name:</strong> {foodInfo.name}</p>
+            <p><strong>Description:</strong> {foodInfo.description}</p>
+            {/* Add more food info fields as needed */}
+          </div>
+        )}
       </header>
     </div>
   );

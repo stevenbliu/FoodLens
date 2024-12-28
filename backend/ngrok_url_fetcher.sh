@@ -12,7 +12,7 @@ NGROK_PUBLIC_URL=$(curl -s http://ngrok:4040/api/tunnels | jq -r '.tunnels[0].pu
 NGROK_PUBLIC_URL=$(echo "$NGROK_PUBLIC_URL" | sed 's|https://||')
 
 # Append .env file with the new public URL in a new line
-echo -e "\nNGROK_PUBLIC_URL=$NGROK_PUBLIC_URL" >> .env
+echo "NGROK_PUBLIC_URL=$NGROK_PUBLIC_URL" > .env
 
 echo "Ngrok public URL is $NGROK_PUBLIC_URL"
 
