@@ -15,6 +15,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+NGROK_PUBLIC_URL = os.getenv('NGROK_PUBLIC_URL')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -56,6 +57,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React dev server
+    f"http://{NGROK_PUBLIC_URL}"
 ]
 
 CORS_ALLOW_METHODS = [
@@ -65,6 +67,12 @@ CORS_ALLOW_METHODS = [
     'DELETE',
     'OPTIONS',
 ]
+from corsheaders.defaults import default_headers
+
+CORS_ALLOW_HEADERS = default_headers + (
+    'ngrok-skip-browser-warning',  # Allow the ngrok specific header if needed
+)
+
 
 
 ROOT_URLCONF = "food_identifier.urls"
@@ -158,7 +166,6 @@ AWS_REGION = os.getenv('AWS_REGION')
 AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
 AWS_SNS_S3_OBJECT_PUT_NOTIFS = os.getenv('AWS_SNS_S3_OBJECT_PUT_NOTIFS')
 
-NGROK_PUBLIC_URL = os.getenv('NGROK_PUBLIC_URL')
 ALLOWED_HOSTS = [NGROK_PUBLIC_URL, 'localhost', '127.0.0.1']
 
 LOGGING = {

@@ -26,11 +26,15 @@ urlpatterns = [
 
     # Endpoint for handling SNS notifications (image uploaded to S3)
     # path('<int:id>/upload-notification/', views.SNSNotificationHandlerView.as_view(), name='upload_notification'),
-    path('upload-notification/', views.SNSNotificationHandlerView.as_view(), name='upload_notification'),
+    path('notifications/', views.SNSNotificationHandlerView.as_view(), name='upload_notification'),
 
     # Endpoint for subscribing to SNS notifications
     path('subscribe/', views.SNSSubscribeView.as_view(), name='subscribe_view'),
+    # path('subscribe/', views.SNSSubscribeView, name='subscribe_view'),
 
     # Endpoint for injecting test data (optional)
     path('inject-test-data/', views.InjectTestDataView.as_view(), name='inject_test_data'),
+
+    # path('s3-notification/', views.S3NotificationView.as_view(), name='s3-notification'),
+
 ]

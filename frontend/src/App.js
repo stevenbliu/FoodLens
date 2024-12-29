@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
-// import CryptoJS from 'crypto-js';  // Import crypto-js
+import CryptoJS from 'crypto-js';  // Import crypto-js
+
+
 
 const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
 const photo_url = `${REACT_APP_NGROK_PUBLIC_URL}/photos`;
@@ -87,9 +89,10 @@ function App() {
   const testButton = async () => {
     console.log('Test button pressed');
     try {
-      const response = await fetch(`${photo_url}/upload-notification/`, { method: 'GET' });
+      const response = await fetch(`${photo_url}/inject-test-data/`, { method: 'POST' });
       console.log(response.ok);
-      console.log(response.body);
+      const data = await response.json();
+      console.log(data);
     } catch (error) {
       console.error('Error in testButton:', error);
     }
@@ -98,32 +101,94 @@ function App() {
   const subscribeView = async () => {
     console.log('Subscribe view button pressed');
     try {
-      const response = await fetch(`${photo_url}/subscribe_view/`, { method: 'GET' });
-      console.log(response.ok);
+      // const response = await fetch(`${photo_url}/subscribe/`, { method: 'GET' });
+      
+      const response = await fetch(`${photo_url}/subscribe/`, { 
+        method: 'GET', 
+        headers: {
+          "ngrok-skip-browser-warning": 63940
+        }
+      });
+
+      const data = await response.text();
+
+      
+      console.log(response);
+      console.log(data);
+
+      // const data = await response.json();  // This will parse the response as JSON
+      // console.log('Response data:', data);
+      
     } catch (error) {
-      console.error('Error in subscribeView:', error);
+      console.error('Error in subscribeView:', error.message);
     }
   };
 
-  const snsEndpoint = async () => {
-    console.log('SNS endpoint button pressed');
+  const getPhotoView = async () => {
+    console.log('Get photo view button pressed');
     try {
-      const response = await fetch(`${photo_url}/sns_endpoint/`, { method: 'GET' });
+      const response = await fetch(`${photo_url}/11/`, { method: 'GET',
+        headers: {
+          "ngrok-skip-browser-warning": 63940
+        }
+       });
       console.log(response.ok);
     } catch (error) {
-      console.error('Error in snsEndpoint:', error);
+      console.error('Error in getPhotoView:', error);
+    }
+  };
+
+  const uploadNotificationPost = async () => {
+    console.log('Upload notification button pressed');
+    try {
+      // const response = await fetch(`${photo_url}/upload-notification/`, { method: 'GET',
+      //   // headers: {
+      //   //   "ngrok-skip-browser-warning": 63940
+      //   // }
+      //  });
+
+       const response = await fetch(`${photo_url}/upload-notification/`, { 
+        method: 'POST', 
+        headers: {
+          "ngrok-skip-browser-warning": 63940
+        }
+      });
+
+
+      console.log(response);
+      const data = await response.text();
+      console.log(data);
+    } catch (error) {
+      console.error('Error in uploadNotification:', error);
     }
   };
 
   const uploadNotification = async () => {
     console.log('Upload notification button pressed');
     try {
-      const response = await fetch(`${photo_url}/upload-notification/`, { method: 'GET' });
-      console.log(response.ok);
+      // const response = await fetch(`${photo_url}/upload-notification/`, { method: 'GET',
+      //   // headers: {
+      //   //   "ngrok-skip-browser-warning": 63940
+      //   // }
+      //  });
+
+       const response = await fetch(`${photo_url}/upload-notification/`, { 
+        method: 'GET', 
+        headers: {
+          "ngrok-skip-browser-warning": 63940
+        }
+      });
+
+
+      console.log(response);
+      const data = await response.text();
+      console.log(data);
     } catch (error) {
       console.error('Error in uploadNotification:', error);
     }
   };
+
+
 
   return (
     <div className="App">
@@ -148,11 +213,14 @@ function App() {
           <button onClick={uploadNotification} className="upload-notification-button">
             Upload Notification Button
           </button>
-          <button onClick={snsEndpoint} className="sns-endpoint-button">
-            SNS Endpoint Button
+          <button onClick={uploadNotificationPost} className="sns-endpoint-button">
+            Post Notification Button
           </button>
           <button onClick={subscribeView} className="subscribe-view-button">
             Subscribe View Button
+          </button>
+          <button onClick={getPhotoView} className="subscribe-view-button">
+            Get View Button
           </button>
         </div>
 

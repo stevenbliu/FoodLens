@@ -12,13 +12,14 @@ services:
     command:
       - "http"
       # - "http://host.docker.internal:8000"  # Pointing to the backend service on port 8000
-      - "http://backend:8000"
+      - "http://backend:8000" 
+      # - "--skip-browser-warning"
     environment:
       NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
     ports:
       - "4040:4040"
     # depends_on:
-      # - static-site
+    #   - static-site
   # ngrok2:
   #   image: ngrok/ngrok:latest
   #   command:
@@ -42,7 +43,7 @@ services:
       - "8000:8000"
     depends_on:
       - db
-      - ngrok
+      # - ngrok
     environment:
       - DATABASE_URL=postgres://user:password@db:5432/dbname
       - REACT_APP_API_URL=http://backend:8000  # Use internal backend service
@@ -61,7 +62,7 @@ services:
       - "3000:3000"
     depends_on:
       - backend
-      - ngrok
+      # - ngrok
     environment:
       - REACT_APP_API_URL=http://backend:8000  # Use internal backend service
       - CHOKIDAR_USEPOLLING=true

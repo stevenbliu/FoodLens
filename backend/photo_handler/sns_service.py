@@ -4,6 +4,9 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 import boto3
+import logging
+
+logger = logging.getLogger(__name__)
 
 # @csrf_exempt
 # def send_sns_notification(request, topic_arn):

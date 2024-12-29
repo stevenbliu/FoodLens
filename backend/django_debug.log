@@ -481,3 +481,395 @@ Traceback (most recent call last):
 UnboundLocalError: cannot access local variable 'message' where it is not associated with a value
 "POST /photos/upload-notification/ HTTP/1.1" 500 88483
 Invalid SNS message type: None
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=Trj8tm8K5S74g8CVGTdL1NBEkKE%3D&content-type=image%2Fpng&Expires=1735494752
+Photo metadata saved successfully: 24
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://2815-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://2815-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://2815-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://2815-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=JBdtSjwQxVOmLiyc9Y74qMyLNZk%3D&content-type=image%2Fpng&Expires=1735495135
+Photo metadata saved successfully: 25
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://2815-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=EWJIRjNCScW5q8hBiVq70pKDM%2B8%3D&content-type=image%2Fpng&Expires=1735496039
+Photo metadata saved successfully: 26
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=KlBJCqK78lcpc1aX3BY%2BDw8L0SA%3D&content-type=image%2Fpng&Expires=1735496045
+Photo metadata saved successfully: 27
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=YSel90Tickrg1qP25LsQ5thFtkg%3D&content-type=image%2Fpng&Expires=1735496243
+Photo metadata saved successfully: 30
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://2815-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://2815-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://2815-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: 
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://92a6-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://92a6-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://92a6-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=LRINc%2BuO8w%2FiWwmKjpacV7T9su4%3D&content-type=image%2Fpng&Expires=1735499327
+Photo metadata saved successfully: 39
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=kHZT7weK7%2FhwWCbfgHRDLvB5HZE%3D&content-type=image%2Fpng&Expires=1735499332
+Photo metadata saved successfully: 40
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://92a6-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://92a6-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://92a6-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://92a6-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://92a6-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://92a6-76-126-145-131.ngrok-free.app/photos/upload-notification/
+suscribe to sns
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://92a6-76-126-145-131.ngrok-free.app/photos/upload-notification/
+suscribe to sns
+Successfully subscribed to SNS topic
+Retrieving photo metadata for photo ID: 11
+Photo metadata retrieved: 11
+Retrieving photo metadata for photo ID: 11
+Photo metadata retrieved: 11
+Retrieving photo metadata for photo ID: 11
+Photo metadata retrieved: 11
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Subscribing to SNS topic: 
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://92a6-76-126-145-131.ngrok-free.app/photos/upload-notification/
+suscribe to sns
+Successfully subscribed to SNS topic
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+suscribe to sns
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+suscribe to sns
+Successfully subscribed to SNS topic
+Retrieving photo metadata for photo ID: 11
+Photo metadata retrieved: 11
+Retrieving photo metadata for photo ID: 11
+Photo metadata retrieved: 11
+Retrieving photo metadata for photo ID: 11
+Photo metadata retrieved: 11
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=1z%2BXCL0WNamXWpiG8Xuz2BuU38A%3D&content-type=image%2Fpng&Expires=1735508203
+Photo metadata saved successfully: 62
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=himzvaU7%2BXrX938CQX5Tu%2BQb0xI%3D&content-type=image%2Fpng&Expires=1735508207
+Photo metadata saved successfully: 63
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+suscribe to sns
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+suscribe to sns
+Successfully subscribed to SNS topic
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+suscribe to sns
+Successfully subscribed to SNS topic
+Retrieving photo metadata for photo ID: 11
+Photo metadata retrieved: 11
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Received SNS Notification:  None
+Invalid SNS message type: None
+Received SNS Notification:  None
+Invalid SNS message type: None
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Received SNS Notification:  None
+Invalid SNS message type: None
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=eObc5YRimPe9Bpiz8iWZUQyd%2FXw%3D&content-type=image%2Fpng&Expires=1735509153
+Photo metadata saved successfully: 68
+Received SNS Notification:  None
+Invalid SNS message type: None
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Received SNS Notification:  None
+Invalid SNS message type: None
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=zSpmnTZEjKfpS7KSjIB4Tt7%2BBDI%3D&content-type=image%2Fpng&Expires=1735509161
+Photo metadata saved successfully: 69
+Received SNS Notification:  None
+Invalid SNS message type: None
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=aKnAzTvpJ7dlna1bEfX3en4ou6Q%3D&content-type=image%2Fpng&Expires=1735509170
+Photo metadata saved successfully: 70
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Received SNS Notification:  None
+Invalid SNS message type: None
+Received SNS Notification:  None
+Invalid SNS message type: None
+Received SNS Notification:  None
+Invalid SNS message type: None
+Received SNS Notification:  None
+Invalid SNS message type: None
+Received SNS Notification:  None
+Invalid SNS message type: None
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Received SNS Notification:  None
+Invalid SNS message type: None
+Received SNS Notification:  None
+Invalid SNS message type: None
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=8lAsu1kgBVtjt%2B0qu%2FGVQlwPT4I%3D&content-type=image%2Fpng&Expires=1735509734
+Photo metadata saved successfully: 72
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Received SNS Notification:  None
+Invalid SNS message type: None
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Retrieving photo metadata for photo ID: 11
+Photo metadata retrieved: 11
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Received SNS Notification:  None
+Invalid SNS message type: None
+Received SNS Notification:  None
+Invalid SNS message type: None
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=Bj1%2Bj7jZ6ZV51bxDyLZe0E1kpJk%3D&content-type=image%2Fpng&Expires=1735510035
+Photo metadata saved successfully: 74
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=%2Fh3ofAtUxT2IjkA4lFEnE1xWrx4%3D&content-type=image%2Fpng&Expires=1735510579
+Photo metadata saved successfully: 75
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=XvIYkHK%2FnYjRcVqNQAlcSm%2B8fmI%3D&content-type=image%2Fpng&Expires=1735510582
+Photo metadata saved successfully: 76
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=Xe4J1Q%2BWSsuOy%2FXYx0Fr3ulo%2FvA%3D&content-type=image%2Fpng&Expires=1735510584
+Photo metadata saved successfully: 77
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=%2B81AfGEX7WHXUwtPJ5CNvNwB2ls%3D&content-type=image%2Fpng&Expires=1735510586
+Photo metadata saved successfully: 78
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=4akt7SFAB32TMdAtord7EwGUSzU%3D&content-type=image%2Fpng&Expires=1735510587
+Photo metadata saved successfully: 79
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Received SNS Notification:  None
+Invalid SNS message type: None
+Received SNS Notification:  None
+Invalid SNS message type: None
+Received SNS Notification:  None
+Invalid SNS message type: None
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Retrieving photo metadata for photo ID: 11
+Photo metadata retrieved: 11
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=MqWW0KQFXu31OGpA%2FtC8TDwsgRs%3D&content-type=image%2Fpng&Expires=1735510611
+Photo metadata saved successfully: 81
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=hv57FN4RYMX7jdSFriVdAV4lh%2FY%3D&content-type=image%2Fpng&Expires=1735510702
+Photo metadata saved successfully: 83
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=vkG1lG26myPEX8OzjZ1a2Li2Q1k%3D&content-type=image%2Fpng&Expires=1735510705
+Photo metadata saved successfully: 84
+Retrieving photo metadata for photo ID: 11
+Photo metadata retrieved: 11
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Received SNS Notification: POST
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=Osvoln1pVC8NPQo3nHbkPwQQidU%3D&content-type=image%2Fpng&Expires=1735511616
+Photo metadata saved successfully: 91
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Received SNS Notification: POST
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Received SNS Notification: POST
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Received SNS Notification: POST
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Received SNS Notification: POST
+Error processing SNS notification: Unsupported media type "text/plain; charset=UTF-8" in request.
+Internal Server Error: /photos/upload-notification/
+"POST /photos/upload-notification/ HTTP/1.1" 500 46
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Received SNS Notification: POST
+Received SNS Notification: SubscriptionConfirmation
+Subscription Confirmation
+Subscription confirmed successfully
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=HmoBxhPLbAqWIFml%2BauBBX2VLYg%3D&content-type=image%2Fpng&Expires=1735512142
+Photo metadata saved successfully: 98
+Received SNS Notification: POST
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:42:23.157Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"B1N0RC845CYDQCDH","x-amz-id-2":"jPokYmsOk5h4EAmsZtxk50tIrdI4VSFM6Z565kePb6aokCRh1mBth/coxV9t3WjC2ozTm86R0b/iCWSnNYAh7M77W6FELTDb"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C23F20176CA5"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:42:23.157Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': 'B1N0RC845CYDQCDH', 'x-amz-id-2': 'jPokYmsOk5h4EAmsZtxk50tIrdI4VSFM6Z565kePb6aokCRh1mBth/coxV9t3WjC2ozTm86R0b/iCWSnNYAh7M77W6FELTDb'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C23F20176CA5'}}}]}
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=IqpYq%2BlAK7DEbSO%2FHKF38fUKffE%3D&content-type=image%2Fpng&Expires=1735512149
+Photo metadata saved successfully: 99
+Received SNS Notification: POST
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:42:30.074Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"ZDJWRQVYPH696E0J","x-amz-id-2":"51FR38EIupr8TFMrIFGc2xeSJ4A0IaRr/bHt9BGbAQWglaoI1BcfskGdnN2cFUg2gMhf/2SPbV1mvpWGDmMyYuVP4HtAJKBP"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C2460B711C64"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:42:30.074Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': 'ZDJWRQVYPH696E0J', 'x-amz-id-2': '51FR38EIupr8TFMrIFGc2xeSJ4A0IaRr/bHt9BGbAQWglaoI1BcfskGdnN2cFUg2gMhf/2SPbV1mvpWGDmMyYuVP4HtAJKBP'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C2460B711C64'}}}]}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/upload-notification/
+Successfully subscribed to SNS topic
+Received SNS Notification: POST
+Received SNS Notification: SubscriptionConfirmation
+Subscription Confirmation
+Subscription confirmed successfully
