@@ -873,3 +873,228 @@ Received SNS Notification: POST
 Received SNS Notification: SubscriptionConfirmation
 Subscription Confirmation
 Subscription confirmed successfully
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/notifications/
+Successfully subscribed to SNS topic
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: SubscriptionConfirmation
+Subscription Confirmation
+Subscription confirmed successfully
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=xf3ZiUmq2aHt%2FOZmrgO0QoUyqPY%3D&content-type=image%2Fpng&Expires=1735512870
+Photo metadata saved successfully: 102
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:54:31.772Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"5D6PAYAE6EHA0P5B","x-amz-id-2":"fe5x7yP2LBsYmCF1OQm/IC/iad0WROcOZN34AFemRe42it8+nFkL1Ev7Onf1gmFkReAIITML46Sml/APPpig0bmIMJFsKsdL"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C517BAA06DD9"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:54:31.772Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': '5D6PAYAE6EHA0P5B', 'x-amz-id-2': 'fe5x7yP2LBsYmCF1OQm/IC/iad0WROcOZN34AFemRe42it8+nFkL1Ev7Onf1gmFkReAIITML46Sml/APPpig0bmIMJFsKsdL'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C517BAA06DD9'}}}]}
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=vvkRCXJ5Qt7GCFj5iyggKkXgfp0%3D&content-type=image%2Fpng&Expires=1735512878
+Photo metadata saved successfully: 103
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:54:39.270Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"SSH1T42DD4SCPCEH","x-amz-id-2":"XP2z4QA4iQKgCbFiVWvJJFXlQhG7Gptz/byhuHfiXYgcApWzPPMfSet1BQeRSu3ejfXQcG5YOcwdA2ZnaNqFLFU/uk8+FcDM"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C51F3D232A80"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:54:39.270Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': 'SSH1T42DD4SCPCEH', 'x-amz-id-2': 'XP2z4QA4iQKgCbFiVWvJJFXlQhG7Gptz/byhuHfiXYgcApWzPPMfSet1BQeRSu3ejfXQcG5YOcwdA2ZnaNqFLFU/uk8+FcDM'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C51F3D232A80'}}}]}
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=0pW0kPYkPCrWvrcZJu19FMqv2oE%3D&content-type=image%2Fpng&Expires=1735512884
+Photo metadata saved successfully: 104
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:54:44.782Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"M7F54JFTS802CW62","x-amz-id-2":"9ag2h73H8Vn1x9qVB6i1XeUMtHIIgxqPcXHXuXuVEiMZDxOu1/KKkmLvaQ7Wmr5MkCFw9/di1M2BhGQqU+V/BFxHDkpyWGxx"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C524BF51A4A7"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:54:44.782Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': 'M7F54JFTS802CW62', 'x-amz-id-2': '9ag2h73H8Vn1x9qVB6i1XeUMtHIIgxqPcXHXuXuVEiMZDxOu1/KKkmLvaQ7Wmr5MkCFw9/di1M2BhGQqU+V/BFxHDkpyWGxx'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C524BF51A4A7'}}}]}
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/notifications/
+Successfully subscribed to SNS topic
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: SubscriptionConfirmation
+Subscription Confirmation
+Subscription confirmed successfully
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=8yG5cs2TnxEG6XPWGB0axtQEq%2Bo%3D&content-type=image%2Fpng&Expires=1735512890
+Photo metadata saved successfully: 105
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:54:51.262Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"08DMB0M6XTMQRDW5","x-amz-id-2":"4SI3sS4KUHb8oNd79DSp33rkXqoiD/oxH7IX1alslLlJ8iyszVXbVFIkwHGNFh+ReoqIwVJZSQpbhiPgfYIUSgU562Lf6If6"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C52B373A31E5"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:54:51.262Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': '08DMB0M6XTMQRDW5', 'x-amz-id-2': '4SI3sS4KUHb8oNd79DSp33rkXqoiD/oxH7IX1alslLlJ8iyszVXbVFIkwHGNFh+ReoqIwVJZSQpbhiPgfYIUSgU562Lf6If6'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C52B373A31E5'}}}]}
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=8USSsktXU%2Fs2DuBfrwdmXMOs4jU%3D&content-type=image%2Fpng&Expires=1735512908
+Photo metadata saved successfully: 106
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:55:09.688Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"XPVPXX3JQZFWDSKE","x-amz-id-2":"H4ulLEU2d0yo1Rgd7yNKtE6uE1AuOGde0Ysn2WO0DjRrkISZ3jpN3KHvW7wm3SltWkmm/DKG+q0cgZVRQoH1hyV4z20stTGR"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C53DA57DA78C"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:55:09.688Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': 'XPVPXX3JQZFWDSKE', 'x-amz-id-2': 'H4ulLEU2d0yo1Rgd7yNKtE6uE1AuOGde0Ysn2WO0DjRrkISZ3jpN3KHvW7wm3SltWkmm/DKG+q0cgZVRQoH1hyV4z20stTGR'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C53DA57DA78C'}}}]}
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=5JlLAZGkGbGcBUsd4%2BymOB81bAo%3D&content-type=image%2Fpng&Expires=1735512917
+Photo metadata saved successfully: 107
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:55:18.935Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"5YQPKR6ENKQB1GWM","x-amz-id-2":"5U8wzIfywWkO4UVBIUHW/IkRBImkP3B16kMeeC+is8kBCKLRfWuTkOBgdKU2277912ViF8MBVK+Iv8W82HCQBng1pitZes3A"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C546E3303A17"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:55:18.935Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': '5YQPKR6ENKQB1GWM', 'x-amz-id-2': '5U8wzIfywWkO4UVBIUHW/IkRBImkP3B16kMeeC+is8kBCKLRfWuTkOBgdKU2277912ViF8MBVK+Iv8W82HCQBng1pitZes3A'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C546E3303A17'}}}]}
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=el7RSJ0YSaTZjpvTldUEgmnKYgI%3D&content-type=image%2Fpng&Expires=1735512934
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=el7RSJ0YSaTZjpvTldUEgmnKYgI%3D&content-type=image%2Fpng&Expires=1735512934
+Photo metadata saved successfully: 108
+Photo metadata saved successfully: 109
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=VpuYqpv%2BpbqxZUa9xFaNzKTAEpY%3D&content-type=image%2Fpng&Expires=1735512935
+Photo metadata saved successfully: 110
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:55:35.704Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"S07FRFNHRTNETFGX","x-amz-id-2":"EWqHPFSuOjI1O5XXsfvhMqb2g7YE7wC6/8yu/HqwZPnVjQzsg3MOpLRFqmRMMBD77+9vGO9dyYySJcOWbeExdYiZuj+zpH03"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C557A93BD617"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:55:35.704Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': 'S07FRFNHRTNETFGX', 'x-amz-id-2': 'EWqHPFSuOjI1O5XXsfvhMqb2g7YE7wC6/8yu/HqwZPnVjQzsg3MOpLRFqmRMMBD77+9vGO9dyYySJcOWbeExdYiZuj+zpH03'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C557A93BD617'}}}]}
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:55:35.903Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"S075W43TQGZKM64K","x-amz-id-2":"tiy6Z9kcAHnoWv3I9X3QY7v0JaYxPaE2nUSndfCOrkqsAXsXqWyC6paF/Nyuy1U+UhizP9DKQvVhSDWkjuDIAEp6SvxIx7HG"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C557DD33A54E"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:55:35.903Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': 'S075W43TQGZKM64K', 'x-amz-id-2': 'tiy6Z9kcAHnoWv3I9X3QY7v0JaYxPaE2nUSndfCOrkqsAXsXqWyC6paF/Nyuy1U+UhizP9DKQvVhSDWkjuDIAEp6SvxIx7HG'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C557DD33A54E'}}}]}
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=lFSEuGV8sivO6eOPfx1MXZXSk2s%3D&content-type=image%2Fpng&Expires=1735512942
+Photo metadata saved successfully: 111
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=lFSEuGV8sivO6eOPfx1MXZXSk2s%3D&content-type=image%2Fpng&Expires=1735512942
+Photo metadata saved successfully: 112
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=8sZDpt4p2PdSuPZNqwL8Q5Fr%2BoA%3D&content-type=image%2Fpng&Expires=1735512943
+Photo metadata saved successfully: 113
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:55:43.178Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"XR7XB09C9F0KNP4T","x-amz-id-2":"wAvq481BVhhiaYHPxVgL2AWQ2mrDymVipFD7yn8Z/3bRWHNZLre7Vr3G8WWSAefohx3cKctQg4/DHz5c5Fv/IoXVcklHTZW6"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C55F25684CFE"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:55:43.178Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': 'XR7XB09C9F0KNP4T', 'x-amz-id-2': 'wAvq481BVhhiaYHPxVgL2AWQ2mrDymVipFD7yn8Z/3bRWHNZLre7Vr3G8WWSAefohx3cKctQg4/DHz5c5Fv/IoXVcklHTZW6'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C55F25684CFE'}}}]}
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:55:43.926Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"XR7JHS7GQBBCVTND","x-amz-id-2":"/oQ/xtqtp2Pvsq6i7rtbP3SRvlSyIPDJivnwJjQZuM6GoOBc8N2dpf3QgBR3iprkNBIRgMJJJOyuPgmATk/NrOX3rQ46ce5z"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C55FE2D7DF51"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:55:43.926Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': 'XR7JHS7GQBBCVTND', 'x-amz-id-2': '/oQ/xtqtp2Pvsq6i7rtbP3SRvlSyIPDJivnwJjQZuM6GoOBc8N2dpf3QgBR3iprkNBIRgMJJJOyuPgmATk/NrOX3rQ46ce5z'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C55FE2D7DF51'}}}]}
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:55:43.562Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"XR7MC0Z74KRNG8W7","x-amz-id-2":"B4hNEBmJLGwtwo3sNh0+IV7flir/bnOaQAWaWTgH6p2XF+7kJZ2H9nTUqEc6OL4C6KejelOQUP2tjsI7cAjjN2ZmHrRGyNWj"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C55F87E0CE77"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:55:43.562Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': 'XR7MC0Z74KRNG8W7', 'x-amz-id-2': 'B4hNEBmJLGwtwo3sNh0+IV7flir/bnOaQAWaWTgH6p2XF+7kJZ2H9nTUqEc6OL4C6KejelOQUP2tjsI7cAjjN2ZmHrRGyNWj'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C55F87E0CE77'}}}]}
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=%2FRV%2BCI7PU01CphzG%2BEPgQ9wn74w%3D&content-type=image%2Fpng&Expires=1735512954
+Photo metadata saved successfully: 114
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=%2FRV%2BCI7PU01CphzG%2BEPgQ9wn74w%3D&content-type=image%2Fpng&Expires=1735512954
+Photo metadata saved successfully: 115
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=%2FRV%2BCI7PU01CphzG%2BEPgQ9wn74w%3D&content-type=image%2Fpng&Expires=1735512954
+Photo metadata saved successfully: 116
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: Notification
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:55:55.631Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"MG1C7FCYWF835VJB","x-amz-id-2":"BLpD1wuxJMxDAm42TNi9f/NsMLr0xoWJP8rmQustVPPAJwGpeFP9iu8FxC3rhrMX0QLiPwAPlb0Wgr0QKafZbXDmr03ZvKxS"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C56B980154A9"}}}]}
+Received SNS Notification: Notification
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:55:55.631Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': 'MG1C7FCYWF835VJB', 'x-amz-id-2': 'BLpD1wuxJMxDAm42TNi9f/NsMLr0xoWJP8rmQustVPPAJwGpeFP9iu8FxC3rhrMX0QLiPwAPlb0Wgr0QKafZbXDmr03ZvKxS'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C56B980154A9'}}}]}
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:55:55.552Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"MG19E5ZZZMKHJ3T0","x-amz-id-2":"la5JwFL7QZ76xVh7P9uszVlsbuM0RLJrgpDrLSL3kg9VP23ZsTFSZcNSEHyXV+FN6izzJOEIo55o2DFpaTzT/GBM7DzMhrEW"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C56B8431064A"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:55:55.552Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': 'MG19E5ZZZMKHJ3T0', 'x-amz-id-2': 'la5JwFL7QZ76xVh7P9uszVlsbuM0RLJrgpDrLSL3kg9VP23ZsTFSZcNSEHyXV+FN6izzJOEIo55o2DFpaTzT/GBM7DzMhrEW'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C56B8431064A'}}}]}
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:55:55.527Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"MG12RJXFQXXVA1NE","x-amz-id-2":"5y9fk8TxSFzoEMpeGCyNNbEMqNHst19J6HfCTgUkhD9U5RKkjr2LlG3DUX1E1VOQlOYemocxweE5ANTBxJg/Y/MaA4KCihrs"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C56B7D0C1388"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:55:55.527Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': 'MG12RJXFQXXVA1NE', 'x-amz-id-2': '5y9fk8TxSFzoEMpeGCyNNbEMqNHst19J6HfCTgUkhD9U5RKkjr2LlG3DUX1E1VOQlOYemocxweE5ANTBxJg/Y/MaA4KCihrs'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C56B7D0C1388'}}}]}
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=g2fHdZ41zp60Z5Bgpx4WTOvbEO0%3D&content-type=image%2Fpng&Expires=1735512991
+Photo metadata saved successfully: 117
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=g2fHdZ41zp60Z5Bgpx4WTOvbEO0%3D&content-type=image%2Fpng&Expires=1735512991
+Photo metadata saved successfully: 118
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=g2fHdZ41zp60Z5Bgpx4WTOvbEO0%3D&content-type=image%2Fpng&Expires=1735512991
+Photo metadata saved successfully: 119
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:56:32.132Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"58PFGK7HGWNN636J","x-amz-id-2":"pbHJrHpA3bWyAZrhZOIpNZIbSHBThk7axtOu7VnbZu3nXuYeWO5qssTBBVL1BWt+fp//U44e7oaGGQNN3uRx8jxwEp5/ulie"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C590183701E8"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:56:32.132Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': '58PFGK7HGWNN636J', 'x-amz-id-2': 'pbHJrHpA3bWyAZrhZOIpNZIbSHBThk7axtOu7VnbZu3nXuYeWO5qssTBBVL1BWt+fp//U44e7oaGGQNN3uRx8jxwEp5/ulie'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C590183701E8'}}}]}
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:56:32.239Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"58P7Y8PC8NFJFDVQ","x-amz-id-2":"K8lvpKyCmgDortOKrjTh59p5waswPqIDz/tQh0tmS0Pxpt9IUVkOgh3qitm0aYN7JNhEQJBlc3OTpoS7IJfdQVp/IjTm8vVo"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C590374BEDA6"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:56:32.239Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': '58P7Y8PC8NFJFDVQ', 'x-amz-id-2': 'K8lvpKyCmgDortOKrjTh59p5waswPqIDz/tQh0tmS0Pxpt9IUVkOgh3qitm0aYN7JNhEQJBlc3OTpoS7IJfdQVp/IjTm8vVo'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C590374BEDA6'}}}]}
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-29T21:56:32.526Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"58P3GH0AR4KTHVFZ","x-amz-id-2":"VB9bONyJbFeES8NcgaK6r83o7hmonK45cTGE+NeGGotZiS2aKuR0QZ3tMLzR3gu6KKjoeA2UcdlifbBYbnz7xFds/1Mubety"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006771C5907D400C2C"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-29T21:56:32.526Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': '58P3GH0AR4KTHVFZ', 'x-amz-id-2': 'VB9bONyJbFeES8NcgaK6r83o7hmonK45cTGE+NeGGotZiS2aKuR0QZ3tMLzR3gu6KKjoeA2UcdlifbBYbnz7xFds/1Mubety'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006771C5907D400C2C'}}}]}
+Calculation result: https://foodphotobucket.s3.amazonaws.com/test_image.jpg?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=jOqB%2BXFq%2Ffi0jCike4PTwquBPXg%3D&content-type=image%2Fjpeg&Expires=1735528741
+Calculation result: <MagicMock name='client().generate_presigned_url()' id='140316591984656'>
+Generating presigned URL for file: invalid.png with size: -100
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/invalid.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=LXhzB52cubBd3sg%2FgWWzy8yRpN0%3D&content-type=image%2Fpng&Expires=1735528941
+Failed to serialize photo data: {'file_size': [ErrorDetail(string='Ensure this value is greater than or equal to 0.', code='min_value')]}
+Missing filename or file_size in request data
+Generating presigned URL for file: test_image.png with size: 1024
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/test_image.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=uM6akZxkve1s98KwYHIKQMvc8Nc%3D&content-type=image%2Fpng&Expires=1735528941
+Photo metadata saved successfully: 1
+Retrieving photo metadata for photo ID: 999
+Photo not found with ID: 999
+Retrieving photo metadata for photo ID: 3
+Photo metadata retrieved: 3
+Generating presigned URL for file: invalid.png with size: -100
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/invalid.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=1ovFnP0eRRw9f2tcTuQS0vgTiBc%3D&content-type=image%2Fpng&Expires=1735529130
+Failed to serialize photo data: {'file_size': [ErrorDetail(string='Ensure this value is greater than or equal to 0.', code='min_value')]}
+Missing filename or file_size in request data
+Generating presigned URL for file: test_image.png with size: 1024
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/test_image.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=lg4fMO74gdrW4Lmh7w5la27UGcA%3D&content-type=image%2Fpng&Expires=1735529130
+Photo metadata saved successfully: 1
+Retrieving photo metadata for photo ID: 999
+Photo not found with ID: 999
+Retrieving photo metadata for photo ID: 3
+Photo metadata retrieved: 3
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: None
+Invalid SNS message type: None
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: None
+Invalid SNS message type: None
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: None
+Invalid SNS message type: None
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/notifications/
+Successfully subscribed to SNS topic
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: SubscriptionConfirmation
+Subscription Confirmation
+Subscription confirmed successfully
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/notifications/
+Successfully subscribed to SNS topic
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: SubscriptionConfirmation
+Subscription Confirmation
+Subscription confirmed successfully
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=uWWnD80%2Bs0EFeUjkheniBhxugsg%3D&content-type=image%2Fpng&Expires=1735529398
+Photo metadata saved successfully: 121
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-30T02:29:58.802Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"VKFN2JQ844T9JNKD","x-amz-id-2":"O03gPe8Xdsx4mgovgqyQl6/zMWywUUSYBPRvgNP50YLvduZvumF2m7Ee3tOr8IOMdqrZV8+cvg6pLSGm6KJgtF55GW9qZO2O"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"00677205A6C339A436"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-30T02:29:58.802Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': 'VKFN2JQ844T9JNKD', 'x-amz-id-2': 'O03gPe8Xdsx4mgovgqyQl6/zMWywUUSYBPRvgNP50YLvduZvumF2m7Ee3tOr8IOMdqrZV8+cvg6pLSGm6KJgtF55GW9qZO2O'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '00677205A6C339A436'}}}]}
+Generating presigned URL for file: invalid.png with size: -100
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/invalid.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=trBKHvtMvH%2FnYrl05bh4JOdyQNM%3D&content-type=image%2Fpng&Expires=1735529778
+Failed to serialize photo data: {'file_size': [ErrorDetail(string='Ensure this value is greater than or equal to 0.', code='min_value')]}
+Missing filename or file_size in request data
+Generating presigned URL for file: test_image.png with size: 1024
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/test_image.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=IZGcmpPJz4F9XrKj%2BAwxW2hULk0%3D&content-type=image%2Fpng&Expires=1735529778
+Photo metadata saved successfully: 1
+Retrieving photo metadata for photo ID: 999
+Photo not found with ID: 999
+Retrieving photo metadata for photo ID: 3
+Photo metadata retrieved: 3
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: None
+Invalid SNS message type: None - Body: {'Type': 'InvalidType'}
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: None
+Invalid SNS message type: None - Body: {'Type': 'Notification', 'Message': '{"event": "s3:ObjectCreated:Put", "key": "test_image.png"}'}
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: None
+Invalid SNS message type: None - Body: {'Type': 'SubscriptionConfirmation', 'SubscribeURL': 'https://mock-subscribe-url.com'}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/notifications/
+Successfully subscribed to SNS topic
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: SubscriptionConfirmation
+Subscription Confirmation
+Subscription confirmed successfully
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=4JaPf%2BlPMK%2BjwLU%2FNMv3zYhgXTE%3D&content-type=image%2Fpng&Expires=1735538523
+Photo metadata saved successfully: 123
+SNSNotificationHandlerView received POST Request
+Received SNS Notification: Notification
+Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-30T05:02:03.859Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"8KN4JW2F71DT1VKC","x-amz-id-2":"/OSFUX6EBUkrAdXHVJ4ScLwSsxVgVqrqlHVrQUp1sg1CgS0EVD/nVjop0Ome5R2E8Pw63LxcIAOGKkhhpexVuzEq+krkeW29"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006772294BCF09D4E6"}}}]}
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-30T05:02:03.859Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': '8KN4JW2F71DT1VKC', 'x-amz-id-2': '/OSFUX6EBUkrAdXHVJ4ScLwSsxVgVqrqlHVrQUp1sg1CgS0EVD/nVjop0Ome5R2E8Pw63LxcIAOGKkhhpexVuzEq+krkeW29'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006772294BCF09D4E6'}}}]}

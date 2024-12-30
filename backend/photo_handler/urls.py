@@ -26,7 +26,7 @@ urlpatterns = [
 
     # Endpoint for handling SNS notifications (image uploaded to S3)
     # path('<int:id>/upload-notification/', views.SNSNotificationHandlerView.as_view(), name='upload_notification'),
-    path('notifications/', views.SNSNotificationHandlerView.as_view(), name='upload_notification'),
+    path('notifications/', views.SNSNotificationHandlerView.as_view(), name='notifications'),
 
     # Endpoint for subscribing to SNS notifications
     path('subscribe/', views.SNSSubscribeView.as_view(), name='subscribe_view'),

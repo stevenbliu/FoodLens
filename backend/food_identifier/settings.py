@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'corsheaders',
     'photo_handler',
+    'photo_identifier',
     'rest_framework',
 
 ]
