@@ -1098,3 +1098,18 @@ SNSNotificationHandlerView received POST Request
 Received SNS Notification: Notification
 Received SNS Notification: {"Records":[{"eventVersion":"2.1","eventSource":"aws:s3","awsRegion":"us-east-1","eventTime":"2024-12-30T05:02:03.859Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAXNGUVOKNVXMIRWK5E"},"requestParameters":{"sourceIPAddress":"76.126.145.131"},"responseElements":{"x-amz-request-id":"8KN4JW2F71DT1VKC","x-amz-id-2":"/OSFUX6EBUkrAdXHVJ4ScLwSsxVgVqrqlHVrQUp1sg1CgS0EVD/nVjop0Ome5R2E8Pw63LxcIAOGKkhhpexVuzEq+krkeW29"},"s3":{"s3SchemaVersion":"1.0","configurationId":"uploadStatus","bucket":{"name":"foodphotobucket","ownerIdentity":{"principalId":"A38AYN0NISFBFB"},"arn":"arn:aws:s3:::foodphotobucket"},"object":{"key":"1kb.png","size":1049,"eTag":"b3d740c2f83f7ee120fd16eaed266b43","sequencer":"006772294BCF09D4E6"}}}]}
 Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-30T05:02:03.859Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': '8KN4JW2F71DT1VKC', 'x-amz-id-2': '/OSFUX6EBUkrAdXHVJ4ScLwSsxVgVqrqlHVrQUp1sg1CgS0EVD/nVjop0Ome5R2E8Pw63LxcIAOGKkhhpexVuzEq+krkeW29'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '006772294BCF09D4E6'}}}]}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://d418-76-126-145-131.ngrok-free.app/photos/notifications/
+Successfully subscribed to SNS topic
+SNSNotificationHandlerView received POST Request
+Subscription confirmed successfully
+Generating presigned URL for file: 1kb.png with size: 1049
+Presigned URL generated: https://foodphotobucket.s3.amazonaws.com/1kb.png?AWSAccessKeyId=AKIAXNGUVOKN4FDPIJJK&Signature=wnzD76%2BbXHSdMGMGkhqw4a%2FJsSs%3D&content-type=image%2Fpng&Expires=1735538691
+Photo metadata saved successfully: 127
+SNSNotificationHandlerView received POST Request
+Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-30T05:04:52.069Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': 'W4CMWG9S77ZXJTPV', 'x-amz-id-2': '3R6ico8fMcvG3E7OEaYAUuVRGifyWqZXj352VJdnR76miUA+ZkRin59BTrfe11m5FLuVaFyO8o185DujQymPfuWcNKohrjVd'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '00677229F4016663C3'}}}]}
