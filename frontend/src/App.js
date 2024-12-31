@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-import CryptoJS from 'crypto-js';  // Import crypto-js
-
-
 
 const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
 const photo_url = `${REACT_APP_NGROK_PUBLIC_URL}/photos`;
@@ -11,184 +8,103 @@ function App() {
   const [file, setFile] = useState(null);
   const [imageUrl, setImageUrl] = useState('');
   const [foodInfo, setFoodInfo] = useState(null);
-  const [fileName, setFileName] = useState("");
+  const [fileName, setFileName] = useState('');
+  const [isUploading, setIsUploading] = useState(false);
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
-    if (selectedFile) {
-      setFile(selectedFile); // Track file for upload
-      setFileName(selectedFile.name); // Update state with file name
-    } else {
-      setFile(null); // Clear file state if no file is selected
-      setFileName(""); // Clear file name
+    setFile(selectedFile || null);
+    setFileName(selectedFile ? selectedFile.name : '');
+  };
+
+  const fetchWithHeaders = async (url, options) => {
+    const headers = {
+      'Content-Type': 'application/json',
+      'ngrok-skip-browser-warning': 63940,
+    };
+  
+    const mergedOptions = { ...options, headers: { ...headers, ...options?.headers } };
+  
+    try {
+      const response = await fetch(url, mergedOptions);
+  
+      if (!response.ok) {
+        const responseText = await response.text();  // Log response body
+        console.error('Response body:', responseText);
+        throw new Error(`HTTP error! Status: ${response.status} - ${responseText}`);
+      }
+  
+      return await response.json();
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error;
     }
   };
 
   const handleImageUpload = async () => {
     if (!file) {
-      alert("Please select an image.");
+      alert('Please select an image.');
       return;
     }
 
+    setIsUploading(true); // Set loading state to true
+
     try {
-      // Request presigned URL from the backend
-      console.log(JSON.stringify({ filename: file.name, file_size: file.size }));
-      const response = await fetch(`${photo_url}/create/`, {
+      const createResponse = await fetchWithHeaders(`${photo_url}/create/`, {
         method: 'POST',
         body: JSON.stringify({ filename: file.name, file_size: file.size }),
-        headers: { 'Content-Type': 'application/json' }
       });
 
-      const jsonResponse = await response.json();
+      const { url } = await createResponse;
+      if (!url) throw new Error('Invalid response from server.');
 
-      // Check if the response has the URL and key
-      if (!jsonResponse.url) {
-        throw new Error("Invalid response from server");
-      }
-
-      console.log('Presigned URL obtained, starting image upload...');
-
-      // Upload the image to S3 using the presigned URL
-      const uploadResponse = await fetch(jsonResponse.url, {
+      const uploadResponse = await fetch(url, {
         method: 'PUT',
         body: file,
-        headers: {
-          'Content-Type': file.type,
-        }
+        headers: { 'Content-Type': file.type },
       });
 
       if (uploadResponse.ok) {
-        console.log('Upload successful');
-
-        setImageUrl(`${jsonResponse.url}`);
-        // fetchFoodInfo(jsonResponse.key);
+        setImageUrl(url);
+        // alert('Image uploaded successfully!');
       } else {
-        throw new Error('Upload failed');
+        throw new Error('Image upload failed.');
       }
     } catch (error) {
-      console.error("Error uploading image:", error);
-      alert("Error uploading image: " + error.message);
+      console.error('Error uploading image:', error);
+      alert(`Error: ${error.message}`);
+    } finally {
+      setIsUploading(false); // Reset loading state
     }
   };
 
-  // const fetchFoodInfo = async (imageKey) => {
-  //   try {
-  //     const response = await fetch(`/identify-food/${imageKey}/`);
-  //     const data = await response.json();
-
-  //     if (data) {
-  //       setFoodInfo(data);
-  //     } else {
-  //       alert("No food identified.");
-  //     }
-  //   } catch (error) {
-  //     alert("Error identifying food: " + error.message);
-  //   }
-  // };
-
-  const testButton = async () => {
-    console.log('Test button pressed');
+  const handleRequest = async (url, method = 'GET', data = null) => {
+    const options = { 
+      method, 
+      headers: { 
+        'Content-Type': 'application/json', 
+      },
+    };
+  
+    // Only add the body if the method is POST or PUT
+    if (data && (method === 'POST' || method === 'PUT')) {
+      options.body = JSON.stringify(data);
+    }
+  
     try {
-      const response = await fetch(`${photo_url}/inject-test-data/`, { method: 'POST' });
-      console.log(response.ok);
-      const data = await response.json();
-      console.log(data);
+      const response = await fetchWithHeaders(url, options);
+      return response;
     } catch (error) {
-      console.error('Error in testButton:', error);
+      console.error(`Error during ${method} request:`, error);
     }
   };
+  
 
-  const subscribeView = async () => {
-    console.log('Subscribe view button pressed');
-    try {
-      // const response = await fetch(`${photo_url}/subscribe/`, { method: 'GET' });
-      
-      const response = await fetch(`${photo_url}/subscribe/`, { 
-        method: 'GET', 
-        headers: {
-          "ngrok-skip-browser-warning": 63940
-        }
-      });
+  const sendTestRequest = () => handleRequest(`${photo_url}/inject-test-data/`, 'POST');
+  const subscribeToNotifications = () => handleRequest(`${photo_url}/subscribe/`, 'GET');
+  const fetchPhotoDetails = () => handleRequest(`${photo_url}/11/`, 'GET');
 
-      const data = await response.text();
-
-      
-      console.log(response);
-      console.log(data);
-
-      // const data = await response.json();  // This will parse the response as JSON
-      // console.log('Response data:', data);
-      
-    } catch (error) {
-      console.error('Error in subscribeView:', error.message);
-    }
-  };
-
-  const getPhotoView = async () => {
-    console.log('Get photo view button pressed');
-    try {
-      const response = await fetch(`${photo_url}/11/`, { method: 'GET',
-        headers: {
-          "ngrok-skip-browser-warning": 63940
-        }
-       });
-      console.log(response.ok);
-    } catch (error) {
-      console.error('Error in getPhotoView:', error);
-    }
-  };
-
-  const uploadNotificationPost = async () => {
-    console.log('Upload notification button pressed');
-    try {
-      // const response = await fetch(`${photo_url}/upload-notification/`, { method: 'GET',
-      //   // headers: {
-      //   //   "ngrok-skip-browser-warning": 63940
-      //   // }
-      //  });
-
-       const response = await fetch(`${photo_url}/upload-notification/`, { 
-        method: 'POST', 
-        headers: {
-          "ngrok-skip-browser-warning": 63940
-        }
-      });
-
-
-      console.log(response);
-      const data = await response.text();
-      console.log(data);
-    } catch (error) {
-      console.error('Error in uploadNotification:', error);
-    }
-  };
-
-  const uploadNotification = async () => {
-    console.log('Upload notification button pressed');
-    try {
-      // const response = await fetch(`${photo_url}/upload-notification/`, { method: 'GET',
-      //   // headers: {
-      //   //   "ngrok-skip-browser-warning": 63940
-      //   // }
-      //  });
-
-       const response = await fetch(`${photo_url}/upload-notification/`, { 
-        method: 'GET', 
-        headers: {
-          "ngrok-skip-browser-warning": 63940
-        }
-      });
-
-
-      console.log(response);
-      const data = await response.text();
-      console.log(data);
-    } catch (error) {
-      console.error('Error in uploadNotification:', error);
-    }
-  };
-
-
+  const notifyUpload = (method = 'GET') => handleRequest(`${photo_url}/upload-notification/`, method);
 
   return (
     <div className="App">
@@ -196,44 +112,26 @@ function App() {
         <h1>Food Identifier</h1>
 
         <div className="button-container">
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleFileChange}
-            className="file-input"
-          />
+          <input type="file" accept="image/*" onChange={handleFileChange} className="file-input" />
           {fileName && <p>Selected file: {fileName}</p>}
 
-          <button onClick={handleImageUpload} className="upload-button">
-            Upload Image
+          <button onClick={handleImageUpload} className="upload-button" disabled={isUploading}>
+            {isUploading ? 'Uploading...' : 'Upload Image'}
           </button>
-          <button onClick={testButton} className="test-button">
-            Test212312 Button
-          </button>
-          <button onClick={uploadNotification} className="upload-notification-button">
-            Upload Notification Button
-          </button>
-          <button onClick={uploadNotificationPost} className="sns-endpoint-button">
-            Post Notification Button
-          </button>
-          <button onClick={subscribeView} className="subscribe-view-button">
-            Subscribe View Button
-          </button>
-          <button onClick={getPhotoView} className="subscribe-view-button">
-            Get View Button
-          </button>
+          <button onClick={sendTestRequest} className="test-button">Send Test Request</button>
+          <button onClick={() => notifyUpload('GET')} className="upload-notification-button">Get Notification</button>
+          <button onClick={() => notifyUpload('POST')} className="sns-endpoint-button">Post Notification</button>
+          <button onClick={subscribeToNotifications} className="subscribe-view-button">Subscribe</button>
+          <button onClick={fetchPhotoDetails} className="fetch-photo-button">Fetch Photo Details</button>
         </div>
 
-        {/* Display the image if uploaded */}
         {imageUrl && <img src={imageUrl} alt="Uploaded preview" className="uploaded-image" />}
-        
-        {/* Display food information */}
+
         {foodInfo && (
           <div className="food-info">
             <h2>Food Info:</h2>
             <p><strong>Name:</strong> {foodInfo.name}</p>
             <p><strong>Description:</strong> {foodInfo.description}</p>
-            {/* Add more food info fields as needed */}
           </div>
         )}
       </header>

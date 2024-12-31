@@ -4,9 +4,11 @@ from django.conf import settings
 
 class Photo(models.Model):
     # Metadata about the photo
+    id = models.AutoField(primary_key=True)
     filename = models.CharField(max_length=255)  # Filename as saved in S3
     file_size = models.PositiveIntegerField()  # File size in bytes
     upload_time = models.DateTimeField(default=timezone.now)  # Time when the photo metadata is saved
+    upload_status = models.CharField(max_length=20, default='pending')  # Status of the upload
     food_name = models.CharField(max_length=255, blank=True, null=True, default=None)  # Information about food (optional)
 
     def s3_url(self):

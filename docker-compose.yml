@@ -50,9 +50,14 @@ services:
       # - NGROK_API=http://ngrok:4040/api/tunnels
       - CHOKIDAR_USEPOLLING=true
       - WATCHPACK_POLLING=true
-
     env_file:
       - ./.env
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+        labels: "yes"
 
   frontend:
     build: 

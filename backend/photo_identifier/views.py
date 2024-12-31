@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import FoodPrediction, FoodCategory
+from .models import FoodPrediction, FoodLabel
 from photo_handler.models import Photo
 from .ml import run_food_model
 
@@ -14,20 +14,20 @@ class PredictFoodView(APIView):
             # Run the ML model on the photo
             result = run_food_model(photo.filename)
 
-            # Get or create the food category
-            category, _ = FoodCategory.objects.get_or_create(name=result['category'])
+            # Get or create the food label
+            label, _ = FoodLabel.objects.get_or_create(name=result['label'])
 
             # Save the prediction
             prediction = FoodPrediction.objects.create(
                 photo=photo,
-                category=category,
+                label=label,
                 confidence=result['confidence']
             )
 
             # Return the prediction data
             return Response({
                 'photo_id': photo.id,
-                'category': prediction.category.name,
+                'label': prediction.label.name,
                 'confidence': prediction.confidence
             }, status=status.HTTP_201_CREATED)
         except Photo.DoesNotExist:
