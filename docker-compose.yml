@@ -33,66 +33,119 @@ services:
   #   # depends_on:
   #     # - static-site
 
-  backend:
-    build: ./backend
-    volumes:
-      - ./backend:/app
-      # - ./backend:/photo_handler
+  # backend:
+  #   build: ./backend
+  #   volumes:
+  #     - ./backend:/app
+  #     # - ./backend:/photo_handler
 
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
-      # - ngrok
-    environment:
-      - DATABASE_URL=postgres://user:password@db:5432/dbname
-      - REACT_APP_API_URL=http://backend:8000  # Use internal backend service
-      # - NGROK_API=http://ngrok:4040/api/tunnels
-      - CHOKIDAR_USEPOLLING=true
-      - WATCHPACK_POLLING=true
-    env_file:
-      - ./.env
-    logging:
-      driver: json-file
-      options:
-        max-size: "10m"
-        max-file: "3"
-        labels: "yes"
+  #   ports:
+  #     - "8000:8000"
+  #   depends_on:
+  #     # - db
+  #     - postgres_primary
+  #     # - ngrok
+  #   environment:
+  #     # - DATABASE_URL=postgres://user:password@db:5432/dbname
+  #     - DATABASE_URL=postgres://user:password@postgres_primary:5432/dbname
 
-  frontend:
-    build: 
-      context: .  # Ensure this is the root of your project (where the docker-compose.yml is)
-      dockerfile: frontend/Dockerfile  # Sp
-    ports:
-      - "3000:3000"
-    depends_on:
-      - backend
-      # - ngrok
-    environment:
-      - REACT_APP_API_URL=http://backend:8000  # Use internal backend service
-      - CHOKIDAR_USEPOLLING=true
-      - WATCHPACK_POLLING=true
-      - FAST_REFRESH=false
-      - WDS_SOCKET_PORT=3000
-    volumes:
-      # - ./frontend:/src
-      - ./frontend/src:/app/src
-      - /app/node_modules  # Optional: This ensures node_modules are not overridden by your local system
-    env_file:
-      - ./.env
+  #     - REACT_APP_API_URL=http://backend:8000  # Use internal backend service
+  #     # - NGROK_API=http://ngrok:4040/api/tunnels
+  #     - CHOKIDAR_USEPOLLING=true
+  #     - WATCHPACK_POLLING=true
+  #   env_file:
+  #     - ./.env
+  #   logging:
+  #     driver: json-file
+  #     options:
+  #       max-size: "10m"
+  #       max-file: "3"
+  #       labels: "yes"
+
+  # frontend:
+  #   build: 
+  #     context: .  # Ensure this is the root of your project (where the docker-compose.yml is)
+  #     dockerfile: frontend/Dockerfile  # Sp
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - backend
+  #     # - ngrok
+  #   environment:
+  #     - REACT_APP_API_URL=http://backend:8000  # Use internal backend service
+  #     - CHOKIDAR_USEPOLLING=true
+  #     - WATCHPACK_POLLING=true
+  #     - FAST_REFRESH=false
+  #     - WDS_SOCKET_PORT=3000
+  #   volumes:
+  #     # - ./frontend:/src
+  #     - ./frontend/src:/app/src
+  #     - /app/node_modules  # Optional: This ensures node_modules are not overridden by your local system
+  #   env_file:
+  #     - ./.env
 
     # working_dir: /frontend
 
-  db:
+  # db:
+  #   image: postgres:13
+  #   environment:
+  #     POSTGRES_USER: user
+  #     POSTGRES_PASSWORD: password
+  #     POSTGRES_DB: dbname
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+
+  postgres_primary:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres 
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: dbname
+      # PGDATA: /var/lib/postgresql/data  # New directory to store data
+
+      # POSTGRES_INITDB_WALDIR: /var/lib/postgresql/data/pg_wal
+    volumes:
+      - postgres_data_primary:/var/lib/postgresql/data
+      # - ./postgres/init_pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf
+      # - ./postgres/init_user.sql:/docker-entrypoint-initdb.d/init_user.sql
+      - ./postgres/init_pg_hba.sh:/docker-entrypoint-initdb.d/init_pg_hba.sh
+
+  #     # # - pgdata:/var/lib/postgresql/data
+
+      - ./postgres/init_primary.sql:/docker-entrypoint-initdb.d/init_primary.sql
+    ports:
+      - "5432:5432"
+    expose:
+      - "5432"  # Exposed for replication
+    # user: postgres
+    # command: ["bash", "-c", "rm -rf /var/lib/postgresql/data/* && initdb -D /var/lib/postgresql/data && postgres"]
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "user", "-d", "dbname"]
+      interval: 10s
+      retries: 5
+      timeout: 5s
+
+  postgres_replica:
     image: postgres:13
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: dbname
+      POSTGRES_DB: replicadb
+      POSTGRES_PRIMARY_HOST: postgres_primary
+      POSTGRES_PRIMARY_PORT: 5432
+      POSTGRES_REPLICATION_USER: replication_user
+      POSTGRES_REPLICATION_PASSWORD: replication_password
+      POSTGRES_HOST_AUTH_METHOD: md5
+    depends_on:
+        postgres_primary:
+          condition: service_healthy  # Waits for the primary to be healthy before starting
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - postgres_data_replica:/var/lib/postgresql/data
+      - ./postgres/init_replica.sh:/docker-entrypoint-initdb.d/init_replica.sh
     ports:
-      - "5432:5432"
+      - "5433:5432"  # Expose different port for replica
 
   pgadmin:
     image: dpage/pgadmin4
@@ -102,7 +155,8 @@ services:
     ports:
       - "5050:80"
     depends_on:
-      - db
+      # - db
+      - postgres_primary
     volumes:
       - pgadmin_data:/var/lib/pgadmin
 
@@ -148,3 +202,5 @@ volumes:
   pgdata:
   pgadmin_data:
   esdata:
+  postgres_data_primary:
+  postgres_data_replica:

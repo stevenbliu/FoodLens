@@ -100,7 +100,7 @@ class PhotoDetailView(APIView):
             logger.info(f"Retrieving photo metadata for photo ID: {id}")
             photo = Photo.objects.get(id=id)
             serializer = PhotoSerializer(photo)
-            logger.info(f"Photo metadata retrieved: {photo.id}")
+            logger.info(f"Photo metadata retrieved: {serializer.data}")
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Photo.DoesNotExist:
             logger.error(f"Photo not found with ID: {id}")

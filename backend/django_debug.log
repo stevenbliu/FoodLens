@@ -19122,3 +19122,102 @@ Internal Server Error: /photos/create/
 You must specify a region.
 Internal Server Error: /photos/create/
 "POST /photos/create/ HTTP/1.1" 500 53
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+SNS subscription not found
+Internal Server Error: /photos/create/
+"POST /photos/create/ HTTP/1.1" 500 53
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+SNS subscription not found
+Internal Server Error: /photos/create/
+"POST /photos/create/ HTTP/1.1" 500 53
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+SNS subscription not found
+Internal Server Error: /photos/create/
+"POST /photos/create/ HTTP/1.1" 500 53
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+SNS subscription not found
+Internal Server Error: /photos/create/
+"POST /photos/create/ HTTP/1.1" 500 53
+Subscribing to SNS topic: arn:aws:sns:us-east-1:509399626395:photoUploadAlert with endpoint: https://fa11-76-126-145-131.ngrok-free.app/photos/notifications/
+SNSNotificationHandlerView received POST Request
+Subscription confirmed successfully
+SNSNotificationHandlerView received POST Request
+Received Notification. Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-31T19:05:42.499Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': 'JFQT05ZBZFNW3GE0', 'x-amz-id-2': 'GZ3XhOEjpXYti4ASiB+KdVuCOFfd6E4UX1Hp+YMk8rgTbdyqxMZHmBtx7Ydd+3Ml5/NinQ/4JwsrWDSCU1aOwxkKpfQ9Ve1V'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png_208', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '00677440866E18B26E'}}}]}
+S3 Object Key: 1kb.png_208
+Classification Result: {'photo_id': 208, 'label': 'Burger', 'confidence': 0.8445652128322653}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Retrieving photo metadata for photo ID: 11
+Photo metadata retrieved: 11
+Retrieving photo metadata for photo ID: 11
+Photo metadata retrieved: 11
+SNSNotificationHandlerView received POST Request
+Received Notification. Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-31T19:06:41.503Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': '2VTCYRS2MJ84YRMJ', 'x-amz-id-2': 'PcIc/QIsOb/Eu8cRwbRhHKyGtxUAkFvNe5WnVu4EwkB7R5rWXKml0KbflZVJTeDSBbcU3uy/0hqLCrgI4wlzvPXnGmQ7gvaS'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png_210', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '00677440C1715B58AE'}}}]}
+S3 Object Key: 1kb.png_210
+Classification Result: {'photo_id': 210, 'label': 'Sushi', 'confidence': 0.6443765894844299}
+Retrieving photo metadata for photo ID: 11
+Photo metadata retrieved: 11
+Retrieving photo metadata for photo ID: 11
+Photo metadata retrieved: 11
+Retrieving photo metadata for photo ID: 1
+Photo metadata retrieved: 1
+Retrieving photo metadata for photo ID: 12
+Photo metadata retrieved: 12
+Retrieving photo metadata for photo ID: 11
+Photo metadata retrieved: 11
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+SNSNotificationHandlerView received POST Request
+Received Notification. Parsed SNS message: {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2024-12-31T19:14:43.595Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalId': 'AWS:AIDAXNGUVOKNVXMIRWK5E'}, 'requestParameters': {'sourceIPAddress': '76.126.145.131'}, 'responseElements': {'x-amz-request-id': 'T9W71YVYY75AQ4TY', 'x-amz-id-2': '+H32BvX0djFd4IxD3InZvomyH7u7QBYNl5wBg0hZkmmZwFHvSX7icke/xL1EHdQAzJpMm49vAd37of/eurUwfYJAgz4r6gHl'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'uploadStatus', 'bucket': {'name': 'foodphotobucket', 'ownerIdentity': {'principalId': 'A38AYN0NISFBFB'}, 'arn': 'arn:aws:s3:::foodphotobucket'}, 'object': {'key': '1kb.png_212', 'size': 1049, 'eTag': 'b3d740c2f83f7ee120fd16eaed266b43', 'sequencer': '00677442A38F3EAA53'}}}]}
+S3 Object Key: 1kb.png_212
+Classification Result: {'photo_id': 212, 'label': 'Burger', 'confidence': 0.6052197272912547}
+Retrieving photo metadata for photo ID: 11
+Photo metadata retrieved: 11
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Injecting test data: {'filename': 'test_image.jpg', 'file_size': 1024}
+Test data injected successfully: {'filename': 'test_image.jpg', 'file_size': 1024}
+Retrieving photo metadata for photo ID: 11
+Photo metadata retrieved: {'id': 11, 'filename': 'dog', 'file_size': 12, 'upload_time': '2024-12-27T21:25:30.953806Z', 'food_name': None}
+Retrieving photo metadata for photo ID: 13
+Photo metadata retrieved: {'id': 13, 'filename': 'test_image.jpg', 'file_size': 1024, 'upload_time': '2024-12-27T22:05:52.456668Z', 'food_name': None}
+Retrieving photo metadata for photo ID: 14
+Photo metadata retrieved: {'id': 14, 'filename': '1kb.png', 'file_size': 1049, 'upload_time': '2024-12-28T01:47:33.347957Z', 'food_name': None}
+Retrieving photo metadata for photo ID: 100
+Photo metadata retrieved: {'id': 100, 'filename': 'test_image.jpg', 'file_size': 1024, 'upload_time': '2024-12-29T21:42:31.942556Z', 'food_name': None}
+Retrieving photo metadata for photo ID: 200
+Photo metadata retrieved: {'id': 200, 'filename': 'test_image.jpg', 'file_size': 1024, 'upload_time': '2024-12-31T18:51:55.966957Z', 'food_name': None}
+Retrieving photo metadata for photo ID: 200
+Photo metadata retrieved: {'id': 200, 'filename': 'test_image.jpg', 'file_size': 1024, 'upload_time': '2024-12-31T18:51:55.966957Z', 'food_name': None}
+Retrieving photo metadata for photo ID: 12321
+Photo not found with ID: 12321
+Retrieving photo metadata for photo ID: 500
+Photo not found with ID: 500
+Retrieving photo metadata for photo ID: 40
+Photo metadata retrieved: {'id': 40, 'filename': '1kb.png', 'file_size': 1049, 'upload_time': '2024-12-29T18:08:52.619673Z', 'food_name': None}
+Retrieving photo metadata for photo ID: 250
+Photo not found with ID: 250
+Retrieving photo metadata for photo ID: 250
+Photo not found with ID: 250
+Retrieving photo metadata for photo ID: 230
+Photo not found with ID: 230
+Retrieving photo metadata for photo ID: 230
+Photo not found with ID: 230
+Retrieving photo metadata for photo ID: 220
+Photo not found with ID: 220
+Retrieving photo metadata for photo ID: 210
+Photo metadata retrieved: {'id': 210, 'filename': '1kb.png', 'file_size': 1049, 'upload_time': '2024-12-31T19:06:40.503874Z', 'food_name': None}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 
 const REACT_APP_NGROK_PUBLIC_URL = process.env.REACT_APP_NGROK_PUBLIC_URL;
-const photo_url = `${REACT_APP_NGROK_PUBLIC_URL}/photos`;
+const PHOTO_URL = `${REACT_APP_NGROK_PUBLIC_URL}/photos`;
 
 function App() {
   const [file, setFile] = useState(null);
@@ -10,11 +10,16 @@ function App() {
   const [foodInfo, setFoodInfo] = useState(null);
   const [fileName, setFileName] = useState('');
   const [isUploading, setIsUploading] = useState(false);
+  const [photoId, setPhotoId] = useState(''); // New state for the photo ID
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
     setFile(selectedFile || null);
     setFileName(selectedFile ? selectedFile.name : '');
+  };
+
+  const handlePhotoIdChange = (event) => {
+    setPhotoId(event.target.value); // Update state when input changes
   };
 
   const fetchWithHeaders = async (url, options) => {
@@ -50,7 +55,7 @@ function App() {
     setIsUploading(true); // Set loading state to true
 
     try {
-      const createResponse = await fetchWithHeaders(`${photo_url}/create/`, {
+      const createResponse = await fetchWithHeaders(`${PHOTO_URL}/create/`, {
         method: 'POST',
         body: JSON.stringify({ filename: file.name, file_size: file.size }),
       });
@@ -100,11 +105,17 @@ function App() {
   };
   
 
-  const sendTestRequest = () => handleRequest(`${photo_url}/inject-test-data/`, 'POST');
-  const subscribeToNotifications = () => handleRequest(`${photo_url}/subscribe/`, 'GET');
-  const fetchPhotoDetails = () => handleRequest(`${photo_url}/11/`, 'GET');
-
-  const notifyUpload = (method = 'GET') => handleRequest(`${photo_url}/upload-notification/`, method);
+  const sendTestRequest = () => handleRequest(`${PHOTO_URL}/inject-test-data/`, 'POST');
+  const subscribeToNotifications = () => handleRequest(`${PHOTO_URL}/subscribe/`, 'GET');
+  
+  const fetchPhotoDetails = () => {
+    if (!photoId) {
+      alert('Please enter a photo ID.');
+      return;
+    }
+    handleRequest(`${PHOTO_URL}/${photoId}/`, 'GET'); // Use the dynamic photo ID
+  };
+  const notifyUpload = (method = 'GET') => handleRequest(`${PHOTO_URL}/upload-notification/`, method);
 
   return (
     <div className="App">
@@ -122,8 +133,16 @@ function App() {
           <button onClick={() => notifyUpload('GET')} className="upload-notification-button">Get Notification</button>
           <button onClick={() => notifyUpload('POST')} className="sns-endpoint-button">Post Notification</button>
           <button onClick={subscribeToNotifications} className="subscribe-view-button">Subscribe</button>
+          
+          <input
+            type="text"
+            value={photoId}
+            onChange={handlePhotoIdChange}
+            placeholder="Enter photo ID"
+            className="photo-id-input"
+          />
           <button onClick={fetchPhotoDetails} className="fetch-photo-button">Fetch Photo Details</button>
-        </div>
+          </div>
 
         {imageUrl && <img src={imageUrl} alt="Uploaded preview" className="uploaded-image" />}
 
